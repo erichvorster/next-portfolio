@@ -1,0 +1,42 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Poppins', sans-serif;
+    color:#EDEDED ;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+
+}
+
+.github{
+
+    background-color: white;
+    -webkit-mask: url("../public/github.svg") no-repeat center;
+    mask: url("../public/github.svg") no-repeat center;
+  
+}
+.linkedin{
+
+    background-color: white;
+    -webkit-mask: url("../public/linkedin-in.svg") no-repeat center;
+    mask: url("../public/linkedin-in.svg") no-repeat center;
+  
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
