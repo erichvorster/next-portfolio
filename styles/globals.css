@@ -8,12 +8,8 @@
     color:#EDEDED ;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-
-
+body{
+  background-color: #171717;
 }
 
 .github{
@@ -32,11 +28,11 @@
 }
 
 .progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 250px;
+  left: 425px;
   right: 0;
-  height: 10px;
-  background: var(--red);
+  background: red;
   transform-origin: 0%;
+  transform: rotate(90deg);
 }

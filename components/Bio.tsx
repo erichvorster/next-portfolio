@@ -12,7 +12,7 @@ const Bio = () => {
 
   return (
     <div className=" h-screen flex flex-col  max-h-screen fixed w-2/5 ">
-      <div className="w-[500px]">
+      <div className="w-[500px] md:max-w-sm md:pr-12">
         <h1 className="text-5xl font-bold">Erich Vorster</h1>
         <h6 className="text-2xl my-6 font-bold">
           Front End Developer at InfoSlips
@@ -33,11 +33,22 @@ const Bio = () => {
           </p>
         </div>
       </div>
-      <div className="h-96">
-        <motion.div
-          className="bg-neutral-900 h-2"
-          style={{ scaleX }}
-        ></motion.div>
+      <div className="h-96 relative">
+        {/* <div className="rotate-90">
+          <motion.div
+            className="progress-bar bg-red-300 h-8 rotate-90 z-10"
+            style={{ scaleX }}
+          />
+        </div> */}
+        <div className="mt-8 absolute top-0 left-0 right-0 bottom-0 z-20 ">
+          <p className="mt-2 flex bg-transparent">
+            About me{" "}
+            {/* <div className="h-4 w-4 ml-8 mt-1 rounded-full bg-transparent" /> */}
+          </p>
+          <p className="mt-2">Projects</p>
+          <p className="mt-2">Blog</p>
+          <p className="mt-2">Contact</p>
+        </div>
       </div>
       {/* <div>
         <div className="w-60 flex justify-between">
