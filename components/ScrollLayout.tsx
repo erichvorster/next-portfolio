@@ -41,6 +41,10 @@ const ScrollLayout = () => {
         <motion.div
           className=" bg-neutral-800 h-28 rounded item p-2"
           variants={item}
+          whileHover={{
+            scale: 0.8,
+            rotate: -20,
+          }}
         >
           <svg viewBox="0 0 128 128">
             <defs>
@@ -68,7 +72,7 @@ const ScrollLayout = () => {
           </svg>
         </motion.div>
         <motion.div
-          className=" bg-neutral-800 h-28 rounded item p-6"
+          className=" bg-neutral-800 h-28 rounded item p-6 "
           variants={item}
         >
           <svg viewBox="0 0 128 128">

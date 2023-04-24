@@ -12,24 +12,30 @@ const Bio = () => {
 
   return (
     <div className=" h-screen flex flex-col  max-h-screen fixed w-2/5 ">
-      <div className="w-[500px] md:max-w-sm md:pr-12">
+      <div className="w-full  md:pr-36">
         <h1 className="text-5xl font-bold">Erich Vorster</h1>
-        <h6 className="text-2xl my-6 font-bold">
-          Front End Developer at InfoSlips
-        </h6>
+        <h6 className="text-2xl my-6 font-bold">Front End Developer</h6>
         <div className="text-grey-400">
           <p className="text-sm pb-4 leading-6">
-            I am a Front End Developer passionate about all things JavaScript.
+            Im a passionate front-end developer with expertise in JavaScript,
+            TypeScript, and React.
           </p>
           <p className="text-sm pb-4 leading-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae,
-            dolores.
+            I possess a strong desire to learn and continually stay updated on
+            the latest technologies, making me capable of delivering
+            high-quality web applications using CSS, HTML, SCSS, Tailwind CSS,
+            Framer Motion, SQL, npm, Material UI, and Node.js. I have a talent
+            for creating responsive and performant web experiences, always
+            keeping the user in mind. Along with my technical skills, I bring
+            exceptional problem-solving and critical-thinking abilities,
+            allowing me to tackle complex projects.
           </p>
           <p className="text-sm pb-4 leading-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            asperiores repellendus dolores sed, soluta, facere quae esse dolore
-            harum expedita quia quis, voluptates vitae doloremque nesciunt.
-            Rerum voluptates et fuga!
+            My ability to work effectively in a team and communicate well with
+            clients ensures a collaborative and productive work environment.
+            Overall, my passion for front-end development and my combination of
+            technical and soft skills make me an ideal candidate for delivering
+            cutting-edge solutions that exceed client expectations.
           </p>
         </div>
       </div>

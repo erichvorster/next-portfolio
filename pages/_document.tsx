@@ -1,5 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Cursor from "../components/Cursor";
 
 const _document = () => {
   return (
@@ -19,6 +20,7 @@ const _document = () => {
       <body>
         <Main />
         <NextScript />
+        <Cursor />
       </body>
     </Html>
   );
