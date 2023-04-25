@@ -10,34 +10,102 @@ const Bio = () => {
     restDelta: 0.001,
   });
 
+  const h1Variant = {
+    hidden: {
+      opacity: 0,
+      x: -100,
+      transition: {
+        delay: 0.4,
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.4,
+      },
+    },
+  };
+  const h6Variant = {
+    hidden: {
+      opacity: 0,
+      x: -100,
+      transition: {
+        delay: 0.5,
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.5,
+      },
+    },
+  };
+  const divVariant = {
+    hidden: {
+      opacity: 0,
+      x: -100,
+      transition: {
+        delay: 0.6,
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.6,
+      },
+    },
+  };
+
+  type BioParagraph = {
+    line?: string;
+  };
+
+  const bioParagraphs: BioParagraph[] = [
+    {
+      line: "Im a passionate front-end developer with expertise in JavaScript,TypeScript, and React.",
+    },
+    {
+      line: "I possess a strong desire to learn and continually stay updated on the latest technologies, making me capable of delivering high-quality web applications using CSS, HTML, SCSS, Tailwind CSS, Framer Motion, SQL, npm, Material UI, and Node.js. I have a talent for creating responsive and performant web experiences, always keeping the user in mind. Along with my technical skills, I bring exceptional problem-solving and critical-thinking abilities, allowing me to tackle complex projects.",
+    },
+    {
+      line: "My ability to work effectively in a team and communicate well with clients ensures a collaborative and productive work environment. Overall, my passion for front-end development and my combination of technical and soft skills make me an ideal candidate for delivering cutting-edge solutions that exceed client expectations.",
+    },
+  ];
+
   return (
-    <div className=" h-screen flex flex-col  max-h-screen fixed w-2/5 ">
+    <div className=" h-screen flex flex-col  max-h-screen lg:fixed ">
       <div className="w-full  md:pr-36">
-        <h1 className="text-5xl font-bold">Erich Vorster</h1>
-        <h6 className="text-2xl my-6 font-bold">Front End Developer</h6>
-        <div className="text-grey-400">
-          <p className="text-sm pb-4 leading-6">
-            Im a passionate front-end developer with expertise in JavaScript,
-            TypeScript, and React.
-          </p>
-          <p className="text-sm pb-4 leading-6">
-            I possess a strong desire to learn and continually stay updated on
-            the latest technologies, making me capable of delivering
-            high-quality web applications using CSS, HTML, SCSS, Tailwind CSS,
-            Framer Motion, SQL, npm, Material UI, and Node.js. I have a talent
-            for creating responsive and performant web experiences, always
-            keeping the user in mind. Along with my technical skills, I bring
-            exceptional problem-solving and critical-thinking abilities,
-            allowing me to tackle complex projects.
-          </p>
-          <p className="text-sm pb-4 leading-6">
-            My ability to work effectively in a team and communicate well with
-            clients ensures a collaborative and productive work environment.
-            Overall, my passion for front-end development and my combination of
-            technical and soft skills make me an ideal candidate for delivering
-            cutting-edge solutions that exceed client expectations.
-          </p>
-        </div>
+        <motion.h1
+          variants={h1Variant}
+          initial="hidden"
+          animate="visible"
+          className="text-5xl font-bold"
+        >
+          Erich Vorster
+        </motion.h1>
+        <motion.h6
+          className="text-2xl my-6 font-bold"
+          variants={h6Variant}
+          initial="hidden"
+          animate="visible"
+        >
+          Front End Developer
+        </motion.h6>
+        <motion.div
+          className="text-grey-400"
+          variants={divVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          {bioParagraphs.map((paragraph, i) => (
+            <p className="text-sm pb-4 leading-6 text-neutral-500" key={i}>
+              {paragraph.line}
+            </p>
+          ))}
+        </motion.div>
       </div>
       <div className="h-96 relative">
         {/* <div className="rotate-90">
