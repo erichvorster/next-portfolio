@@ -12,7 +12,7 @@ body{
   background-color: #171717;
 }
 
-.github{
+/* .github{
 
     background-color: white;
     -webkit-mask: url("../public/github.svg") no-repeat center;
@@ -25,7 +25,7 @@ body{
     -webkit-mask: url("../public/linkedin-in.svg") no-repeat center;
     mask: url("../public/linkedin-in.svg") no-repeat center;
   
-}
+} */
 
 .progress-bar {
   position: absolute;
@@ -36,3 +36,4 @@ body{
   transform-origin: 0%;
   transform: rotate(90deg);
 }
+

@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <>
-      <div className=" pt-24 grid grid-cols-3 container mx-auto px-6">
-        <div className="col-span-3 md:col-span-2 ">
+      <div className=" pt-24 grid grid-cols-4 container mx-auto px-6 max-w-screen-xl">
+        <div className="col-span-3 md:col-span-2  ">
           <Bio />
         </div>
-        <div className="col-span-3 md:col-span-1">
+        <div className="col-span-3 md:col-span-2">
           <ScrollLayout />
         </div>
       </div>

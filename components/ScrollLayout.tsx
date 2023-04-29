@@ -27,11 +27,13 @@ const item = {
 const ScrollLayout = () => {
   return (
     <div>
-      {arr.map((arr, i) => (
-        <div key={i} className="w-full">
-          <ProjectCard />
-        </div>
-      ))}
+      <div className="group/bg">
+        {arr.map((arr, i) => (
+          <div key={i} className="w-full">
+            <ProjectCard />
+          </div>
+        ))}
+      </div>
       <motion.div
         className="grid grid-cols-3 gap-4 px-2 pt-24 pb-24"
         variants={container}

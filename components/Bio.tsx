@@ -4,6 +4,23 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 const Bio = () => {
   const { scrollYProgress } = useScroll();
+
+  console.log(scrollYProgress);
+
+  // function setScrollYclass = (scrollYProgress) => {
+  //   switch (scrollYProgress) {
+  //     case scrollYProgress < 800:
+  //       return "text-xl";
+  //     case scrollYProgress < 2225:
+  //       return "text-xl";
+  //     case scrollYProgress < 0.3:
+  //       return "text-xl";
+  //     case scrollYProgress < 0.4:
+  //       return "text-xl";
+  //       default:
+  //       return "text-sm";  };
+  // }
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -13,7 +30,7 @@ const Bio = () => {
   const h1Variant = {
     hidden: {
       opacity: 0,
-      x: -100,
+      x: -20,
       transition: {
         delay: 0.4,
       },
@@ -29,7 +46,7 @@ const Bio = () => {
   const h6Variant = {
     hidden: {
       opacity: 0,
-      x: -100,
+      x: -20,
       transition: {
         delay: 0.5,
       },
@@ -45,14 +62,14 @@ const Bio = () => {
   const divVariant = {
     hidden: {
       opacity: 0,
-      x: -100,
+      y: -20,
       transition: {
         delay: 0.6,
       },
     },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         delay: 0.6,
       },
@@ -75,9 +92,15 @@ const Bio = () => {
     },
   ];
 
+  const navLinks = [
+    { name: "Projects", href: "/projects" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
+
   return (
-    <div className=" h-screen flex flex-col  max-h-screen lg:fixed ">
-      <div className="w-full  md:pr-36">
+    <div className=" h-screen flex flex-col  max-h-screen lg:fixed lg:max-w-xl">
+      <div className="w-full  ">
         <motion.h1
           variants={h1Variant}
           initial="hidden"
@@ -107,26 +130,21 @@ const Bio = () => {
           ))}
         </motion.div>
       </div>
-      <div className="h-96 relative">
-        {/* <div className="rotate-90">
-          <motion.div
-            className="progress-bar bg-red-300 h-8 rotate-90 z-10"
-            style={{ scaleX }}
-          />
-        </div> */}
-        <div className="mt-8 absolute top-0 left-0 right-0 bottom-0 z-20 ">
-          <p className="mt-2 flex bg-transparent">
-            About me{" "}
-            {/* <div className="h-4 w-4 ml-8 mt-1 rounded-full bg-transparent" /> */}
-          </p>
-          <p className="mt-2">Projects</p>
-          <p className="mt-2">Blog</p>
-          <p className="mt-2">Contact</p>
-        </div>
+      <div className="relative">
+        <ul className="mt-8 ">
+          {navLinks.map((link, i) => (
+            <li key={i} className="mt-2">
+              <a href="{link.href}">
+                <span className="shadow" />
+                <span className="">{link.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-      {/* <div>
-        <div className="w-60 flex justify-between">
-          <div className="flex justify-between items-center w-24">
+      <div>
+        <div className="flex justify-between max-w-xs">
+          <div className="flex justify-between items-center">
             <Image
               src="github.svg"
               height={35}
@@ -136,7 +154,7 @@ const Bio = () => {
             />
             <small>Github</small>
           </div>
-          <div className="flex justify-between items-center w-24">
+          <div className="flex justify-between items-center">
             <Image
               src="linkedin-in.svg"
               height={35}
@@ -147,7 +165,7 @@ const Bio = () => {
             <small className="pl-4">Linkedin</small>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
