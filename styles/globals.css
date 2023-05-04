@@ -26,14 +26,3 @@ body{
     mask: url("../public/linkedin-in.svg") no-repeat center;
   
 } */
-
-.progress-bar {
-  position: absolute;
-  top: 250px;
-  left: 425px;
-  right: 0;
-  background: red;
-  transform-origin: 0%;
-  transform: rotate(90deg);
-}
-
