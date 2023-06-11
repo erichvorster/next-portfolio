@@ -1,46 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const ProjectCard = () => {
+const ProjectCard = ({ proj }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className=" relative group/gradient hover:cursor-pointer  ">
+    <div
+      className={`relative ${
+        isHovered ? "" : "opacity-75"
+      } group/gradient hover:cursor-pointer`}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleMouseLeave}
+    >
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 17 }}
-        className="bg-neutral-800/25 hover:bg-neutral-800 p-10 m-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors"
+        className="bg-neutral-800 hover:bg-neutral-800 hover:shadow-2xl px-14 py-10 m-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors"
       >
         <div className="flex justify-between">
-          <div className="h-[3px] w-[120px]  mb-3 rounded-full group-hover:bg-indigo-500 group-hover:shadow-xxl group-hover:shadow-indigo-500/90  transition-all ease-in-out duration-700 " />
+          {/*      
           <div className="flex w-16 justify-between">
             <FontAwesomeIcon
               icon={faGithub}
-              className="h-6 w-6 "
-              color="#000"
+              className="h-6 w-6 text-transparent group-hover:text-[#6e5494] transition-all ease-in-out duration-700 hover:scale-125"
             />
             <FontAwesomeIcon
               icon={faLink}
-              className="h-6 w-6 text-neutral-500"
-              style={{ color: "#000" }}
+              className="h-6 w-6 text-transparent group-hover:text-[#4078c0] transition-all ease-in-out duration-700 hover:scale-125"
+              style={{ fill: "#000" }}
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="text-gray-300">
-          <p className="mb-1 font-bold text-neutral-500 group-hover:text-[#EDEDED] transition-colors ease-in-out duration-700 ">
+          <p className="mb-1 font-bold  group-hover:text-[#EDEDED] transition-colors ease-in-out duration-700 ">
             TYPESCRIPT
           </p>
-          <h4 className="mb-1 text-2xl font-bold text-neutral-500 group-hover:text-[#EDEDED] transition-colors ease-in-out duration-700 ">
-            Project name here
+          <h4 className="mb-1 text-2xl font-bold  group-hover:text-[#EDEDED] transition-colors ease-in-out duration-700 ">
+            {proj.projectName}
           </h4>
-          <p className="text-sm  text-neutral-500 group-hover:text-[#EDEDED]  transition-colors ease-in-out duration-700 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
-            corrupti.
+          <p className="text-sm   group-hover:text-[#EDEDED]  transition-colors ease-in-out duration-700 ">
+            {proj.projectDescription}
           </p>
+          <div className="flex flex-wrap mt-2">
+            {proj.tech.map((t) => (
+              <span
+                key={t}
+                className="px-4 py-1 bg-neutral-600 rounded-full mr-1 mt-1 text-sm"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>

@@ -4,19 +4,19 @@ import ScrollLayout from "../components/ScrollLayout";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 export default function Home() {
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-  });
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   console.log("Page scroll: ", latest);
+  // });
 
   return (
     <>
-      <div className=" pt-24 grid grid-cols-4 container mx-auto px-6 max-w-screen-xl">
-        <div className="col-span-3 md:col-span-2  ">
+      <div className=" grid grid-cols-4 container mx-auto px-8 max-w-screen-xl lg:px-12">
+        <div className="col-span-4 lg:col-span-2  mt-8 h-screen pt-24">
           <Bio />
         </div>
-        <div className="col-span-3 md:col-span-2">
+        <div className="col-span-4 lg:col-span-2 pt-24">
           <ScrollLayout />
         </div>
       </div>

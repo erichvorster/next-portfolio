@@ -5,11 +5,15 @@
 
 *{
     font-family: 'Poppins', sans-serif;
-    color:#EDEDED ;
+   
 }
 
 body{
   background-color: #171717;
+}
+
+.icon{
+    color:red !important;
 }
 
 /* .github{
