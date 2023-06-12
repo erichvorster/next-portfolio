@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactForm = ({ scrollYProgress }) => {
   const [formData, setFormData] = useState({
@@ -15,17 +16,33 @@ const ContactForm = ({ scrollYProgress }) => {
     e.preventDefault();
   };
 
+  const container = {
+    hidden: { opacity: 0, scale: 1 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.8,
+        staggerChildren: 0.075,
+      },
+    },
+  };
+
   return (
-    <div
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
       className={` w-full border  border-neutral-800 rounded-lg ${
-        scrollYProgress.current > 0.95
+        scrollYProgress.current > 0.96
           ? "border-1 border-white shadow-md shadow-white/25 bg-neutral-800"
           : "border-neutral-700"
-      }   mx-auto transition-all ease-in-out duration-700`}
+      }   mx-auto transition-all ease-in-out duration-300`}
     >
       <form
         onSubmit={handleSubmit}
-        className={` w-full  rounded-md p-8 h-[420px]`}
+        className={` w-full  rounded-md p-8 h-[380px]`}
       >
         <div className="grid grid-cols-2 gap-4">
           <div className="mb-4">
@@ -37,10 +54,10 @@ const ContactForm = ({ scrollYProgress }) => {
             </label>
             <input
               className={`shadow ${
-                scrollYProgress.current > 0.95
+                scrollYProgress.current > 0.96
                   ? "border-1 border-white bg-neutral-800"
-                  : "border-neutral-700"
-              }  appearance-none border transition-all ease-in-out duration-700 rounded w-full py-2 px-3 text-gray-700 border-neutral-800 bg-neutral-900 leading-tight focus:outline-none focus:shadow-outline`}
+                  : "border-neutral-700 bg-neutral-900"
+              }  appearance-none border transition-all ease-in-out duration-300 rounded w-full py-2 px-3 text-gray-700 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
               id="name"
               type="text"
               name="name"
@@ -59,10 +76,10 @@ const ContactForm = ({ scrollYProgress }) => {
             </label>
             <input
               className={`shadow ${
-                scrollYProgress.current > 0.95
+                scrollYProgress.current > 0.96
                   ? "border-1 border-white bg-neutral-800"
-                  : "border-neutral-700"
-              }  appearance-none border transition-all ease-in-out duration-700 rounded w-full py-2 px-3 text-gray-700 border-neutral-800 bg-neutral-900 leading-tight focus:outline-none focus:shadow-outline`}
+                  : "border-neutral-700 bg-neutral-900"
+              }  appearance-none border transition-all ease-in-out duration-300 rounded w-full py-2 px-3 text-gray-700 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
               id="email"
               type="email"
               name="email"
@@ -83,10 +100,10 @@ const ContactForm = ({ scrollYProgress }) => {
           </label>
           <textarea
             className={`shadow ${
-              scrollYProgress.current > 0.95
+              scrollYProgress.current > 0.96
                 ? "border-1 border-white bg-neutral-800"
-                : "border-neutral-700"
-            }  appearance-none border transition-all ease-in-out duration-700 rounded w-full py-2 px-3 text-gray-700 border-neutral-800 bg-neutral-900 leading-tight focus:outline-none focus:shadow-outline`}
+                : "border-neutral-700 bg-neutral-900"
+            }  appearance-none border transition-all ease-in-out duration-300 rounded w-full py-2 px-3 text-gray-700 border-neutral-800 leading-tight focus:outline-none focus:shadow-outline`}
             id="message"
             name="message"
             rows="8"
@@ -105,7 +122,7 @@ const ContactForm = ({ scrollYProgress }) => {
           </button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

@@ -6,35 +6,42 @@ import ContactForm from "./ContactForm";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import Hi from "./WavingHand";
 
 const projects = [
   {
-    projectName: "Project 1",
-    projectDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu volutpat mauris. ",
+    language: "TypeScript",
+    projectName: "Project Management App",
+    projectDescription: "A minimalist project management app",
     projectLink: "https://example.com/project1",
-    tech: ["React", "JavaScript", "CSS"],
+    githubLink: "",
+    tech: ["NextJS", "TypeScript", "TailwindCSS"],
   },
   {
-    projectName: "Project 2",
+    language: "TypeScript",
+    projectName: "DSTV Now Clone",
     projectDescription:
-      "Sed fermentum odio vel nisi cursus lobortis. Aenean a nisi maximus elit hendrerit iaculis eu eu mi. ",
-    projectLink: "https://example.com/project2",
-    tech: ["React", "JavaScript", "CSS"],
+      "A clone of the popular South African streaming service DSTV Now.",
+    projectLink: "https://stunning-donut-f45f69.netlify.app",
+    githubLink: "https://github.com/erichvorster/nextjs-dstv-clone",
+    tech: ["NextJS", "JavaScript", "TailwindCSS", "TMDB API"],
   },
   {
-    projectName: "Project 3",
-    projectDescription:
-      "Duis hendrerit turpis sit amet est elementum, eget vehicula velit pulvinar. Nulla consectetur.",
-    projectLink: "https://example.com/project3",
-    tech: ["React", "JavaScript", "CSS"],
+    language: "JavaScript",
+    projectName: "Crypto Tracker",
+    projectDescription: "A simple crypto tracker app",
+    projectLink: "https://jocular-dusk-7ef7f0.netlify.app",
+    githubLink: "https://github.com/erichvorster/react-crypto-site",
+    tech: ["React", "JavaScript", "MaterialUI", "Coinranking API"],
   },
   {
-    projectName: "Project 4",
-    projectDescription:
-      "Sed mattis non diam aliquam euismod. Nunc eu lacus a metus dapibus pulvinar. Sed eu quam tellus. ",
-    projectLink: "https://example.com/project4",
-    tech: ["React", "JavaScript", "CSS"],
+    language: "JavaScript",
+    projectName: "Wifi Provider Site",
+    projectDescription: "A site for a wifi provider company",
+    projectLink: "https://roaring-mochi-4de1e0.netlify.app",
+    githubLink: "https://github.com/erichvorster/fibr",
+    tech: ["JavaScript", "SCSS", "GSAP"],
   },
 ];
 
@@ -69,7 +76,7 @@ const item = {
   },
 };
 const item2 = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 0, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -83,10 +90,9 @@ const ScrollLayout = () => {
   scrollYProgress.onChange((latest) => {
     setScrollProgress(latest);
   });
-  
 
   return (
-    <div className="mt-10" id="projects">
+    <div className="mt-28">
       {/* Projects section */}
       <motion.div
         variants={container2}
@@ -97,17 +103,15 @@ const ScrollLayout = () => {
         <motion.h2
           variants={item}
           className={`font-bold flex items-center mt-4 text-xl tracking-widest ml-2  mb-12 ${
-            scrollYProgress.current < 0.23
-              ? " text-white/75"
-              : " text-neutral-700"
+            scrollYProgress.current < 0.15 ? " text-white" : " text-neutral-700"
           }`}
         >
           <motion.div
             className={`h-[1px] ${
-              scrollYProgress.current < 0.23
+              scrollYProgress.current < 0.15
                 ? "w-10 bg-white"
                 : "w-0 bg-neutral-700"
-            }  mr-3 transiton-all ease-in-out duration-700`}
+            }  mr-3 transiton-all ease-in-out duration-300`}
           />
           PROJECTS
         </motion.h2>
@@ -122,7 +126,9 @@ const ScrollLayout = () => {
           variants={item}
           className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-4 cursor-pointer"
         >
-          More projects{" "}
+          <Link href="https://github.com/erichvorster" target="_blank">
+            More projects{" "}
+          </Link>
           <FontAwesomeIcon
             icon={faArrowRight}
             className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
@@ -135,29 +141,29 @@ const ScrollLayout = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="pt-72"
+        className="pt-28 mt-20"
+        id="tech"
       >
         <motion.h2
-          variants={item}
+          variants={item2}
           // // initial="hidden"
           // // whileInView="visible"
           className={`font-bold  mb-2 text-xl flex items-center tracking-widest ml-2 transition-all  ease-in-out  ${
-            scrollYProgress.current > 0.23 && scrollYProgress.current < 0.67
-              ? " text-white/75"
+            scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
+              ? " text-white"
               : " text-neutral-700"
           }`}
-          id="tech"
         >
           <motion.div
             className={`h-[1px] ${
-              scrollYProgress.current > 0.23 && scrollYProgress.current < 0.67
+              scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
                 ? "w-10 bg-white"
                 : "w-0 bg-neutral-700"
-            }  mr-3 transiton-all ease-in-out duration-700`}
+            }  mr-3 transiton-all ease-in-out duration-300`}
           />
           TECH STACK
         </motion.h2>
-        <motion.div className="grid grid-cols-3 gap-4 px-2 mt-12 pb-24 ">
+        <motion.div className="grid grid-cols-3 gap-4 px-2 mt-12  ">
           <motion.div
             className=" bg-neutral-800  rounded item p-2 "
             variants={item}
@@ -166,53 +172,60 @@ const ScrollLayout = () => {
               rotate: -20,
             }}
           >
-            <svg viewBox="0 0 128 128">
-              <defs>
-                <linearGradient
-                  id="tailwindcss-original-wordmark-a"
-                  gradientUnits="userSpaceOnUse"
-                  x1="2.21"
-                  y1="511.596"
-                  x2="3.211"
-                  y2="511.596"
-                  gradientTransform="matrix(27.16757 5.6391 -9.3985 16.30055 4747.487 -8290.643)"
-                >
-                  <stop offset="0" stop-color="#2298bd"></stop>
-                  <stop offset="1" stop-color="#0ed7b5"></stop>
-                </linearGradient>
-              </defs>
-              <path
-                d="M13.227 56.074c-3.528 0-5.727 1.778-6.602 5.301 1.324-1.773 2.875-2.426 4.625-1.977 1 .25 1.727.977 2.523 1.801 1.301 1.324 2.801 2.852 6.079 2.852 3.523 0 5.722-1.778 6.597-5.301-1.324 1.773-2.875 2.426-4.625 1.977-1-.25-1.722-.977-2.523-1.801-1.301-1.324-2.801-2.852-6.074-2.852zM6.602 64C3.074 64 .875 65.773 0 69.3c1.324-1.777 2.875-2.425 4.625-1.976 1 .25 1.727.977 2.523 1.801 1.301 1.324 2.801 2.852 6.079 2.852 3.523 0 5.722-1.778 6.597-5.301-1.324 1.773-2.875 2.426-4.625 1.972-1-.25-1.722-.972-2.523-1.796C11.398 65.523 9.898 64 6.602 64zm0 0"
-                fill="url(#tailwindcss-original-wordmark-a)"
-              ></path>
-              <path
-                d="M39.676 62.75h-2.301v4.477c0 1.199.773 1.171 2.3 1.097v1.801c-3.1.375-4.323-.477-4.323-2.898V62.75h-1.704v-1.926h1.704v-2.5l2-.597v3.097h2.296v1.926zm8.8-1.926h2v9.301h-2v-1.352c-.703.977-1.8 1.579-3.25 1.579-2.527 0-4.624-2.153-4.624-4.903 0-2.773 2.097-4.898 4.625-4.898 1.449 0 2.546.597 3.25 1.574zm-2.953 7.625c1.676 0 2.954-1.25 2.954-2.972 0-1.727-1.278-2.977-2.954-2.977-1.671 0-2.949 1.25-2.949 2.977.028 1.722 1.278 2.972 2.95 2.972zm8.301-9.023c-.699 0-1.273-.602-1.273-1.278 0-.699.574-1.273 1.273-1.273.7 0 1.278.574 1.278 1.273.023.676-.579 1.278-1.278 1.278zm-1 10.699v-9.3h2v9.3zm4.324 0V56.551h2v13.574zm15.079-9.3h2.125l-2.926 9.3h-1.977l-1.926-6.273-1.949 6.273h-1.972l-2.926-9.3H62.8l1.8 6.425 1.95-6.426h1.926l1.921 6.426zm4.597-1.4c-.699 0-1.273-.6-1.273-1.277 0-.699.574-1.273 1.273-1.273.7 0 1.278.574 1.278 1.273.023.676-.551 1.278-1.278 1.278zm-1 10.7v-9.3h2v9.3zm9.227-9.55c2.074 0 3.574 1.425 3.574 3.823v5.727h-2v-5.5c0-1.426-.824-2.148-2.074-2.148-1.324 0-2.375.773-2.375 2.671v5h-2v-9.296h2v1.199c.625-1 1.625-1.477 2.875-1.477zm13.125-3.473h2v13.023h-2v-1.352c-.7.977-1.801 1.579-3.25 1.579-2.528 0-4.625-2.153-4.625-4.903 0-2.773 2.097-4.898 4.625-4.898 1.449 0 2.55.597 3.25 1.574zm-2.95 11.347c1.672 0 2.95-1.25 2.95-2.972 0-1.727-1.278-2.977-2.95-2.977-1.675 0-2.953 1.25-2.953 2.977 0 1.722 1.278 2.972 2.954 2.972zm11.672 1.926c-2.796 0-4.921-2.148-4.921-4.898 0-2.778 2.097-4.903 4.921-4.903 1.829 0 3.403.95 4.153 2.403l-1.727 1c-.398-.875-1.324-1.426-2.449-1.426-1.648 0-2.875 1.25-2.875 2.926 0 1.671 1.25 2.921 2.875 2.921 1.125 0 2.023-.574 2.477-1.421l1.722.972c-.75 1.477-2.347 2.426-4.176 2.426zm7.528-7c0 1.7 5 .676 5 4.125 0 1.852-1.625 2.875-3.625 2.875-1.852 0-3.2-.852-3.801-2.176l1.727-1c.296.852 1.046 1.352 2.074 1.352.898 0 1.574-.301 1.574-1.051 0-1.648-5-.727-5-4.05 0-1.75 1.5-2.848 3.398-2.848 1.528 0 2.801.699 3.454 1.921l-1.704.954c-.324-.727-.972-1.051-1.75-1.051-.722-.028-1.347.3-1.347.949zm8.574 0c0 1.7 5 .676 5 4.125 0 1.852-1.625 2.875-3.625 2.875-1.852 0-3.2-.852-3.8-2.176l1.726-1c.3.852 1.05 1.352 2.074 1.352.898 0 1.574-.301 1.574-1.051 0-1.648-5-.727-5-4.05 0-1.75 1.5-2.848 3.403-2.848 1.523 0 2.796.699 3.449 1.921l-1.7.954c-.328-.727-.976-1.051-1.75-1.051-.726-.028-1.351.3-1.351.949zm0 0"
-                fill="#2d3748"
-              ></path>
-            </svg>
+            <div className="    ">
+              <div className=" z-10">
+                <svg viewBox="0 0 128 128">
+                  <defs>
+                    <linearGradient
+                      id="tailwindcss-original-wordmark-a"
+                      gradientUnits="userSpaceOnUse"
+                      x1="2.21"
+                      y1="511.596"
+                      x2="3.211"
+                      y2="511.596"
+                      gradientTransform="matrix(27.16757 5.6391 -9.3985 16.30055 4747.487 -8290.643)"
+                    >
+                      <stop offset="0" stop-color="#2298bd"></stop>
+                      <stop offset="1" stop-color="#0ed7b5"></stop>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M13.227 56.074c-3.528 0-5.727 1.778-6.602 5.301 1.324-1.773 2.875-2.426 4.625-1.977 1 .25 1.727.977 2.523 1.801 1.301 1.324 2.801 2.852 6.079 2.852 3.523 0 5.722-1.778 6.597-5.301-1.324 1.773-2.875 2.426-4.625 1.977-1-.25-1.722-.977-2.523-1.801-1.301-1.324-2.801-2.852-6.074-2.852zM6.602 64C3.074 64 .875 65.773 0 69.3c1.324-1.777 2.875-2.425 4.625-1.976 1 .25 1.727.977 2.523 1.801 1.301 1.324 2.801 2.852 6.079 2.852 3.523 0 5.722-1.778 6.597-5.301-1.324 1.773-2.875 2.426-4.625 1.972-1-.25-1.722-.972-2.523-1.796C11.398 65.523 9.898 64 6.602 64zm0 0"
+                    fill="url(#tailwindcss-original-wordmark-a)"
+                  ></path>
+                  <path
+                    d="M39.676 62.75h-2.301v4.477c0 1.199.773 1.171 2.3 1.097v1.801c-3.1.375-4.323-.477-4.323-2.898V62.75h-1.704v-1.926h1.704v-2.5l2-.597v3.097h2.296v1.926zm8.8-1.926h2v9.301h-2v-1.352c-.703.977-1.8 1.579-3.25 1.579-2.527 0-4.624-2.153-4.624-4.903 0-2.773 2.097-4.898 4.625-4.898 1.449 0 2.546.597 3.25 1.574zm-2.953 7.625c1.676 0 2.954-1.25 2.954-2.972 0-1.727-1.278-2.977-2.954-2.977-1.671 0-2.949 1.25-2.949 2.977.028 1.722 1.278 2.972 2.95 2.972zm8.301-9.023c-.699 0-1.273-.602-1.273-1.278 0-.699.574-1.273 1.273-1.273.7 0 1.278.574 1.278 1.273.023.676-.579 1.278-1.278 1.278zm-1 10.699v-9.3h2v9.3zm4.324 0V56.551h2v13.574zm15.079-9.3h2.125l-2.926 9.3h-1.977l-1.926-6.273-1.949 6.273h-1.972l-2.926-9.3H62.8l1.8 6.425 1.95-6.426h1.926l1.921 6.426zm4.597-1.4c-.699 0-1.273-.6-1.273-1.277 0-.699.574-1.273 1.273-1.273.7 0 1.278.574 1.278 1.273.023.676-.551 1.278-1.278 1.278zm-1 10.7v-9.3h2v9.3zm9.227-9.55c2.074 0 3.574 1.425 3.574 3.823v5.727h-2v-5.5c0-1.426-.824-2.148-2.074-2.148-1.324 0-2.375.773-2.375 2.671v5h-2v-9.296h2v1.199c.625-1 1.625-1.477 2.875-1.477zm13.125-3.473h2v13.023h-2v-1.352c-.7.977-1.801 1.579-3.25 1.579-2.528 0-4.625-2.153-4.625-4.903 0-2.773 2.097-4.898 4.625-4.898 1.449 0 2.55.597 3.25 1.574zm-2.95 11.347c1.672 0 2.95-1.25 2.95-2.972 0-1.727-1.278-2.977-2.95-2.977-1.675 0-2.953 1.25-2.953 2.977 0 1.722 1.278 2.972 2.954 2.972zm11.672 1.926c-2.796 0-4.921-2.148-4.921-4.898 0-2.778 2.097-4.903 4.921-4.903 1.829 0 3.403.95 4.153 2.403l-1.727 1c-.398-.875-1.324-1.426-2.449-1.426-1.648 0-2.875 1.25-2.875 2.926 0 1.671 1.25 2.921 2.875 2.921 1.125 0 2.023-.574 2.477-1.421l1.722.972c-.75 1.477-2.347 2.426-4.176 2.426zm7.528-7c0 1.7 5 .676 5 4.125 0 1.852-1.625 2.875-3.625 2.875-1.852 0-3.2-.852-3.801-2.176l1.727-1c.296.852 1.046 1.352 2.074 1.352.898 0 1.574-.301 1.574-1.051 0-1.648-5-.727-5-4.05 0-1.75 1.5-2.848 3.398-2.848 1.528 0 2.801.699 3.454 1.921l-1.704.954c-.324-.727-.972-1.051-1.75-1.051-.722-.028-1.347.3-1.347.949zm8.574 0c0 1.7 5 .676 5 4.125 0 1.852-1.625 2.875-3.625 2.875-1.852 0-3.2-.852-3.8-2.176l1.726-1c.3.852 1.05 1.352 2.074 1.352.898 0 1.574-.301 1.574-1.051 0-1.648-5-.727-5-4.05 0-1.75 1.5-2.848 3.403-2.848 1.523 0 2.796.699 3.449 1.921l-1.7.954c-.328-.727-.976-1.051-1.75-1.051-.726-.028-1.351.3-1.351.949zm0 0"
+                    fill="#2d3748"
+                  ></path>
+                </svg>
+              </div>
+            </div>
           </motion.div>
+
           <motion.div
-            className=" bg-neutral-800 rounded item p-6 "
+            className=" bg-neutral-800 rounded item p-6 relative "
             variants={item}
           >
-            <svg viewBox="0 0 128 128">
-              <path
-                fill="#E44D26"
-                d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"
-              ></path>
-              <path
-                fill="#F16529"
-                d="M64 116.8l36.378-10.086 8.559-95.878H64z"
-              ></path>
-              <path
-                fill="#EBEBEB"
-                d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"
-              ></path>
-              <path
-                fill="#fff"
-                d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"
-              ></path>
-            </svg>
+            <div className="   ">
+              <svg viewBox="0 0 128 128">
+                <path
+                  fill="#E44D26"
+                  d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"
+                ></path>
+                <path
+                  fill="#F16529"
+                  d="M64 116.8l36.378-10.086 8.559-95.878H64z"
+                ></path>
+                <path
+                  fill="#EBEBEB"
+                  d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"
+                ></path>
+                <path
+                  fill="#fff"
+                  d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"
+                ></path>
+              </svg>
+            </div>
           </motion.div>
           <motion.div
             className=" bg-neutral-800  rounded item p-6"
@@ -474,14 +487,24 @@ const ScrollLayout = () => {
       <div id="xp">
         <div>
           <WorkExpreience scrollYProgress={scrollYProgress} />
+          <motion.div
+            variants={item}
+            className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-4 cursor-pointer"
+          >
+            <Link href="https://github.com/erichvorster" target="_blank">
+              View full resume
+            </Link>
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
+            />
+          </motion.div>
         </div>
       </div>
-      <div className="mt-44 mb-[150px]">
+      <div className=" mb-[115px] pt-52" id="contact">
         <h1
-          className={`font-bold  mb-2 text-xl tracking-widest transition-all  flex items-center last:ease-in-out mt-72 ${
-            scrollYProgress.current > 0.9
-              ? " text-white/75"
-              : " text-neutral-700"
+          className={`font-bold  mb-2 text-xl tracking-widest transition-all  flex items-center last:ease-in-out  ${
+            scrollYProgress.current > 0.9 ? " text-white" : " text-neutral-700"
           }`}
         >
           <motion.div
@@ -489,36 +512,17 @@ const ScrollLayout = () => {
               scrollYProgress.current > 0.9
                 ? "w-10 bg-white"
                 : "w-0 bg-neutral-700"
-            }  mr-3 transiton-all ease-in-out duration-700`}
+            }  mr-3 transiton-all ease-in-out duration-300`}
           />{" "}
           SAY HI
-          <motion.p
-            className="text-2xl"
-            style={{
-              marginBottom: "-20px",
-              marginRight: "-45px",
-              paddingBottom: "20px",
-              paddingRight: "45px",
-              display: "inline-block",
-            }}
-            animate={{ rotate: 20 }}
-            transition={{
-              yoyo: Infinity,
-              from: 0,
-              duration: 0.2,
-              ease: "easeInOut",
-              type: "tween",
-            }}
-          >
-            👋
-          </motion.p>
+          <Hi />
         </h1>
         <ContactForm scrollYProgress={scrollYProgress} />
 
         <p
-          className={`text-neutral-500 mt-[120px] text-sm text-center ${
+          className={`text-neutral-500 mt-[60px] text-sm text-center ${
             scrollYProgress.current > 0.99 ? "opacity-100" : "opacity-25"
-          } transition-all ease-in-out duration-700 delay-100 `}
+          } transition-all ease-in-out duration-300 delay-100 `}
         >
           Built by yours truely using{" "}
           <span className="text-white underline">NextJS</span>,{" "}

@@ -7,6 +7,9 @@
     font-family: 'Poppins', sans-serif;
    
 }
+html {
+    scroll-behavior: smooth !important;
+  }
 
 body{
   background-color: #171717;
@@ -15,6 +18,8 @@ body{
 .icon{
     color:red !important;
 }
+
+
 
 /* .github{
 
@@ -30,3 +35,37 @@ body{
     mask: url("../public/linkedin-in.svg") no-repeat center;
   
 } */
+
+
+
+
+
+  #circle {
+    position: absolute;
+    border-radius: 100%;
+    padding: 0px;
+      animation: rotate-animation 8s infinite linear;
+    left:-30px;
+    top:-30px;
+  
+  }
+  
+  #circle span {
+    position: absolute;
+    transform-origin: top left;
+    font-size: 14px;
+ 
+  }
+  
+  @keyframes rotate-animation {
+    from { transform: rotate(-360deg); }
+    to { transform: rotate(0); }
+  }
+  
+
+  
+  .list:hover{
+    background-color: blue;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+  }

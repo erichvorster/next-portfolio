@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring, motionValue } from "framer-motion";
-import { faLink, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLink,
+  faMailBulk,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,9 +14,12 @@ import erich from "../public/erich.jpg";
 
 const Bio = () => {
   const { scrollYProgress } = useScroll();
-
+  const [scrollProgress, setScrollProgress] = useState(0);
+  // Update the scroll progress whenever it changes
+  scrollYProgress.onChange((latest) => {
+    setScrollProgress(latest);
+  });
   console.log(scrollYProgress.current);
-
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -185,12 +192,51 @@ const Bio = () => {
     line?: string;
   };
 
+  const circleRef = useRef<HTMLDivElement>(null);
+
+  const degreeToRadian = (angle: number) => {
+    return angle * (Math.PI / 180);
+  };
+
+  const radius = 60;
+  const diameter = radius * 2;
+
+  useEffect(() => {
+    //Ref could be null here
+    const circle = circleRef.current;
+    if (circle != null) {
+      circle.style.width = `${diameter}px`;
+      circle.style.height = `${diameter}px`;
+    }
+
+    const text = circle!.dataset.text;
+    const characters = text!.split("");
+
+    const deltaAngle = 360 / characters.length;
+    const characterOffsetAngle = 8;
+    let currentAngle = -90;
+
+    characters.forEach((character, index) => {
+      const span = document.createElement("span");
+      span.innerText = character;
+      const xPos = radius * (1 + Math.cos(degreeToRadian(currentAngle)));
+      const yPos = radius * (1 + Math.sin(degreeToRadian(currentAngle)));
+
+      const transform = `translate(${xPos}px, ${yPos}px)`;
+      const rotate = `rotate(${index * deltaAngle + characterOffsetAngle}deg)`;
+      span.style.transform = `${transform} ${rotate}`;
+
+      currentAngle += deltaAngle;
+      circle!.appendChild(span);
+    });
+  }, [diameter]);
+
   const bioParagraphs: BioParagraph[] = [
     {
-      line: "Im a passionate front-end developer with expertise in JavaScript,TypeScript, and React.",
+      line: " ",
     },
     {
-      line: "I possess a strong desire to learn and continually stay updated on the latest technologies, making me capable of delivering high-quality web applications using CSS, HTML, SCSS, Tailwind CSS, Framer Motion, SQL, npm, Material UI, and Node.js. I have a talent for creating responsive and performant web experiences, always keeping the user in mind. Along with my technical skills, I bring exceptional problem-solving and critical-thinking abilities, allowing me to tackle complex projects.",
+      line: "I possess a strong desire to learn and continually stay updated on the latest technologies, making me capable of delivering high-quality web applications using ",
     },
   ];
 
@@ -201,19 +247,19 @@ const Bio = () => {
   ];
 
   return (
-    <div className="flex-col h-full justify-between  lg:fixed  lg:max-w-sm xl:max-w-md">
+    <div className="flex flex-col justify-between lg:h-screen  lg:fixed  lg:max-w-sm xl:max-w-md py-24 ">
       <div>
         <div className="w-full  ">
           <motion.h1
             variants={h1Variant}
             initial="hidden"
             animate="visible"
-            className="text-6xl text-[#e2c481] font-bold"
+            className="text-6xl font-bold text-white"
           >
             Erich Vorster
           </motion.h1>
           <motion.h6
-            className="text-2xl my-6 text-white font-bold"
+            className="text-2xl my-3 text-white font-bold"
             variants={h6Variant}
             initial="hidden"
             animate="visible"
@@ -226,11 +272,10 @@ const Bio = () => {
             initial="hidden"
             animate="visible"
           >
-            {bioParagraphs.map((paragraph, i) => (
-              <p className="text-sm pb-4 leading-6 text-neutral-500" key={i}>
-                {paragraph.line}
-              </p>
-            ))}
+            <p className="text-sm pb-4 leading-6 text-neutral-500 max-w-xs">
+              I am a front end developer passionate about building beautiful
+              user interfaces.
+            </p>
           </motion.div>
         </div>
         <div className="relative">
@@ -242,18 +287,27 @@ const Bio = () => {
               animate="visible"
             >
               <Link href={"#projects"} className="flex items-center group">
+                <small
+                  className={`text-white text-xs tracking-wider ${
+                    scrollYProgress.current < 0.15
+                      ? " text-white mr-2"
+                      : " text-neutral-700 group-hover:text-white mr-2"
+                  }  `}
+                >
+                  01
+                </small>
                 <motion.div
                   className={`h-[1px] ${
-                    scrollYProgress < 0.23
-                      ? "w-40 bg-white"
-                      : "w-20 bg-neutral-700"
-                  }  mr-3 transiton-all ease-in-out duration-700 group-hover:w-40 group-hover:bg-white`}
+                    scrollYProgress.current < 0.15
+                      ? "w-10 bg-white"
+                      : "w-5 bg-neutral-700"
+                  }  mr-3 transiton-all ease-in-out duration-300 group-hover:w-10 group-hover:bg-white`}
                 />
                 <span
                   className={`text-white text-xs tracking-wider ${
-                    scrollYProgress < 0.23
-                      ? "w-40 text-white"
-                      : "w-20 text-neutral-700 group-hover:text-white"
+                    scrollYProgress.current < 0.15
+                      ? " text-white"
+                      : " text-neutral-700 group-hover:text-white"
                   }  `}
                 >
                   {navLinks[0].name}
@@ -267,20 +321,30 @@ const Bio = () => {
               animate="visible"
             >
               <Link href={"#tech"} className="flex items-center group">
+                <small
+                  className={`text-white text-xs tracking-wider ${
+                    scrollYProgress.current > 0.15 &&
+                    scrollYProgress.current < 0.59
+                      ? " text-white mr-2"
+                      : " text-neutral-700 group-hover:text-white mr-2"
+                  }  `}
+                >
+                  02
+                </small>
                 <motion.div
                   className={`h-[1px] ${
-                    scrollYProgress.current > 0.23 &&
-                    scrollYProgress.current < 0.67
-                      ? "w-40 bg-white"
-                      : "w-20 bg-neutral-700"
-                  }  mr-3 transiton-all ease-in-out duration-700 group-hover:w-40 group-hover:bg-white`}
+                    scrollYProgress.current > 0.15 &&
+                    scrollYProgress.current < 0.59
+                      ? "w-10 bg-white"
+                      : "w-5 bg-neutral-700"
+                  }  mr-3 transiton-all ease-in-out duration-300 group-hover:w-10 group-hover:bg-white`}
                 />
                 <span
                   className={`text-white text-xs tracking-wider ${
-                    scrollYProgress.current > 0.23 &&
-                    scrollYProgress.current < 0.67
-                      ? "w-40 text-white"
-                      : "w-20 text-neutral-700 group-hover:text-white"
+                    scrollYProgress.current > 0.15 &&
+                    scrollYProgress.current < 0.59
+                      ? " text-white"
+                      : " text-neutral-700 group-hover:text-white"
                   }  `}
                 >
                   {navLinks[1].name}
@@ -294,20 +358,30 @@ const Bio = () => {
               animate="visible"
             >
               <Link href={"#xp"} className="flex items-center group">
+                <small
+                  className={`text-white text-xs tracking-wider ${
+                    scrollYProgress.current > 0.59 &&
+                    scrollYProgress.current < 0.99
+                      ? " text-white mr-2"
+                      : " text-neutral-700 group-hover:text-white mr-2"
+                  }  `}
+                >
+                  03
+                </small>
                 <motion.div
                   className={`h-[1px] ${
-                    scrollYProgress.current > 0.67 &&
+                    scrollYProgress.current > 0.59 &&
                     scrollYProgress.current < 0.99
-                      ? "w-40 bg-white"
-                      : "w-20 bg-neutral-700"
-                  }  mr-3 transiton-all ease-in-out duration-700 group-hover:w-40 group-hover:bg-white `}
+                      ? "w-10 bg-white"
+                      : "w-5 bg-neutral-700"
+                  }  mr-3 transiton-all ease-in-out duration-300 group-hover:w-10 group-hover:bg-white `}
                 />
                 <span
                   className={`text-white text-xs tracking-wider ${
-                    scrollYProgress.current > 0.67 &&
+                    scrollYProgress.current > 0.59 &&
                     scrollYProgress.current < 0.99
-                      ? "w-40 text-white"
-                      : "w-20 text-neutral-700 group-hover:text-white"
+                      ? "w-10 text-white"
+                      : "w-5 text-neutral-700 group-hover:text-white"
                   }  `}
                 >
                   {navLinks[2].name}
@@ -317,39 +391,55 @@ const Bio = () => {
           </ul>
         </div>
       </div>
-      <div className="mt-24">
+      <div className="">
         <div className="flex justify-between items-center max-w-xs">
-          <motion.div variants={imgVariant} initial="hidden" animate="visible">
+          <Link href="#contact" className="relative">
             <motion.div
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 0.8 }}
-              className="cursor-pointer"
+              variants={imgVariant}
+              initial="hidden"
+              animate="visible"
             >
-              <div
-                className={`rounded-full ${
-                  scrollYProgress.current > 0.95
-                    ? "bg-transparent opacity-100"
-                    : "bg-neutral-700/75 opacity-30"
-                }  transition-all ease-in-out duration-300 hover:opacity-100`}
+              <motion.div
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: 0.8 }}
+                className="cursor-pointer"
               >
-                <Image
-                  src={erich}
-                  height={60}
-                  width={60}
-                  alt="erich"
-                  className="rounded-full"
-                />
-              </div>
+                <div
+                  className={`rounded-full ${
+                    scrollYProgress.current > 0.95
+                      ? "bg-transparent opacity-100"
+                      : "bg-neutral-700/75 opacity-30"
+                  }  transition-all ease-in-out duration-300 hover:opacity-100`}
+                >
+                  <div
+                    ref={circleRef}
+                    id="circle"
+                    data-text="CONTACT-CONTACT-CONTACT-"
+                    className={`${
+                      scrollYProgress.current > 0.95
+                        ? "text-neutral-300"
+                        : "text-transparent"
+                    } transition-all duration-300 ease-in-out hover:text-neutral-300`}
+                  ></div>
+                  <Image
+                    src={erich}
+                    height={60}
+                    width={60}
+                    alt="erich"
+                    className="rounded-full"
+                  />
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </Link>
           <motion.div variants={imgVariant1} initial="hidden" animate="visible">
             <FontAwesomeIcon
               icon={faGithub}
               className={`h-7 w-7  ${
                 scrollYProgress.current > 0.96
                   ? "text-white"
-                  : "text-neutral-700"
-              } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
+                  : "text-neutral-700 "
+              } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer `}
             />
           </motion.div>
           <motion.div variants={imgVariant2} initial="hidden" animate="visible">
@@ -358,13 +448,13 @@ const Bio = () => {
               className={`h-7 w-7  ${
                 scrollYProgress.current > 0.96
                   ? "text-white"
-                  : "text-neutral-700"
+                  : "text-neutral-700 "
               } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
             />
           </motion.div>
           <motion.div variants={imgVariant3} initial="hidden" animate="visible">
             <FontAwesomeIcon
-              icon={faMailBulk}
+              icon={faEnvelope}
               className={`h-7 w-7  ${
                 scrollYProgress.current > 0.96
                   ? "text-white"
