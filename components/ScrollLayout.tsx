@@ -171,42 +171,83 @@ const ScrollLayout = () => {
             whileInView="visible"
           >
             <motion.p className="text-center md:text-left text-neutral-400 text-sm mb-4 ml-2">
-              I am a self-motivated front-end developer with a strong drive to
-              excel within collaborative team environments. My passion lies in
-              crafting immersive web experiences using my expertise in HTML,
-              CSS, and JavaScript. With a focus on front-end frameworks like
-              React, I am dedicated to staying at the forefront of software
+              I am a{" "}
+              <span className="text-neutral-200 underline underline-offset-4">
+                self-motivated
+              </span>{" "}
+              front-end developer with a strong drive to excel within
+              collaborative team environments. My passion lies in crafting
+              immersive web experiences using my expertise in{" "}
+              <span className="text-neutral-200 underline underline-offset-4">
+                HTML
+              </span>
+              ,{" "}
+              <span className="text-neutral-200 underline underline-offset-4">
+                CSS
+              </span>
+              , and
+              <span className="text-neutral-200 underline underline-offset-4">
+                {" "}
+                JavaScript
+              </span>
+              . With a focus on front-end frameworks like{" "}
+              <span className="text-neutral-200 underline underline-offset-4">
+                React
+              </span>
+              , I am dedicated to staying at the forefront of software
               development trends and continuously expanding my technological
               skills.
               <br />
               <br />
               My journey as a front-end developer has equipped me with a diverse
-              skill set. I specialize in constructing fully responsive web
-              applications using React, from functional to class-based
-              components. With an in-depth understanding of React hooks and
-              component lifecycles, I thrive on creating dynamic user interfaces
-              that deliver exceptional user experiences.
+              skill set. I specialize in constructing{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                fully responsive
+              </span>{" "}
+              web applications using{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                React,
+              </span>{" "}
+              from{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                functional to class-based components
+              </span>
+              . With an in-depth understanding of{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                React hooks
+              </span>{" "}
+              and{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                component lifecycles
+              </span>
+              , I thrive on creating dynamic user interfaces that deliver
+              exceptional user experiences.
               <br />
               <br />I am not just content with my current skill set – I am
               always eager to learn and grow. I have hands-on experience using
-              TypeScript with React and Angular, and I am adept at utilizing
-              state management tools like Redux Toolkit and React Query for
-              efficient data management. I have seamlessly integrated RESTful
-              APIs using tools like Axios and React Query, enhancing user
+              <span className="text-neutral-300 underline underline-offset-2">
+                TypeScript
+              </span>{" "}
+              with{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                React
+              </span>{" "}
+              and{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                Angular
+              </span>
+              , and I am adept at utilizing state management tools like{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                Redux Toolkit
+              </span>{" "}
+              and React Query for efficient data management. I have seamlessly
+              integrated{" "}
+              <span className="text-neutral-300 underline underline-offset-2">
+                RESTful APIs
+              </span>{" "}
+              using tools like Axios and React Query, enhancing user
               interactivity and engagement.
             </motion.p>
-            <motion.div
-              variants={item2}
-              className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-2 cursor-pointer"
-            >
-              <a href="../public/resume/erichvorster.pdf" download>
-                View full resume
-              </a>
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
-              />
-            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -690,18 +731,6 @@ const ScrollLayout = () => {
       <div>
         <div>
           <WorkExpreience scrollYProgress={scrollYProgress} />
-          <motion.div
-            variants={item}
-            className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-4 cursor-pointer"
-          >
-            <Link href="https://github.com/erichvorster" target="_blank">
-              View full resume
-            </Link>
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
-            />
-          </motion.div>
         </div>
       </div>
       <div className=" mb-[115px] pt-52" id="contact">

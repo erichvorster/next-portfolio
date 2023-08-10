@@ -473,7 +473,7 @@ const Bio = () => {
             </motion.div>
           </Link>
           <motion.div variants={imgVariant1} initial="hidden" animate="visible">
-            <Link href={"https://github.com/erichvorster"}>
+            <Link href={"https://github.com/erichvorster"} target="_blank">
               <FontAwesomeIcon
                 icon={faGithub}
                 className={`h-7 w-7  ${
@@ -503,18 +503,6 @@ const Bio = () => {
             <Link href={"mailto:erichvorster1@gmail.com"} target="_blank">
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className={`h-7 w-7  ${
-                  scrollYProgress.current > 0.96
-                    ? "text-white"
-                    : "text-neutral-700"
-                } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
-              />
-            </Link>
-          </motion.div>
-          <motion.div variants={imgVariant3} initial="hidden" animate="visible">
-            <Link href={"mailto:erichvorster1@gmail.com"} target="_blank">
-              <FontAwesomeIcon
-                icon={faFile}
                 className={`h-7 w-7  ${
                   scrollYProgress.current > 0.96
                     ? "text-white"
