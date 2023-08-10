@@ -60,7 +60,7 @@ const ContactForm = ({ scrollYProgress }) => {
                 scrollYProgress.current > 0.96
                   ? "border-1 border-white bg-neutral-800"
                   : "border-neutral-700 bg-neutral-900"
-              }  appearance-none border transition-all ease-in-out duration-300 rounded w-full py-2 px-3 text-gray-700 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
+              }  appearance-none border transition-all ease-in-out duration-300 rounded focus-within:bg-neutral-800 w-full py-2 px-3 text-neutral-400 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
               id="name"
               type="text"
               name="name"
@@ -82,7 +82,7 @@ const ContactForm = ({ scrollYProgress }) => {
                 scrollYProgress.current > 0.96
                   ? "border-1 border-white bg-neutral-800"
                   : "border-neutral-700 bg-neutral-900"
-              }  appearance-none border transition-all ease-in-out duration-300 rounded w-full py-2 px-3 text-gray-700 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
+              }  appearance-none border transition-all ease-in-out duration-300 rounded focus-within:bg-neutral-800 w-full py-2 px-3 text-neutral-400 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
               id="email"
               type="email"
               name="email"
@@ -106,7 +106,7 @@ const ContactForm = ({ scrollYProgress }) => {
               scrollYProgress.current > 0.96
                 ? "border-1 border-white bg-neutral-800"
                 : "border-neutral-700 bg-neutral-900"
-            }  appearance-none border transition-all ease-in-out duration-300 rounded w-full py-2 px-3 text-gray-700 border-neutral-800 leading-tight focus:outline-none focus:shadow-outline`}
+            }  appearance-none border transition-all ease-in-out duration-300 rounded focus:bg-neutral-800 w-full py-2 px-3 text-neutral-400 border-neutral-800 leading-tight focus:outline-none focus:shadow-outline`}
             id="message"
             name="message"
             rows="8"
@@ -119,7 +119,11 @@ const ContactForm = ({ scrollYProgress }) => {
 
         <div className="flex items-center justify-center">
           <button
-            className="border border-neutral-800 font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
+            className={`border ${
+              scrollYProgress.current > 0.96
+                ? "border-1 border-white bg-neutral-800"
+                : "border-neutral-700 bg-neutral-900"
+            }  text-gray-500 border-neutral-800 font-noraml hover:bg-gray-700  transiton-all ease-in-out font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline`}
             type="submit"
             value="Send"
           >

@@ -38,7 +38,9 @@ body{
 
 
 
-
+.ifs{
+  filter: invert(43%) sepia(22%) saturate(976%) hue-rotate(58deg) brightness(94%) contrast(91%);
+}
 
   #circle {
     position: absolute;

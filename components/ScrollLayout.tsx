@@ -83,6 +83,8 @@ const ScrollLayout = () => {
     setScrollProgress(latest);
   });
 
+  console.log(scrollYProgress);
+
   return (
     <div className="mt-28">
       {/* Projects section */}
@@ -127,19 +129,18 @@ const ScrollLayout = () => {
           />
         </motion.div>
       </motion.div>
-      {/* TECH STACK SECTION */}
+
+      {/* ABOUT SECTION */}
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         className="pt-28 mt-20"
-        id="tech"
+        id="about"
       >
         <motion.h2
           variants={item2}
-          // // initial="hidden"
-          // // whileInView="visible"
           className={`font-bold  mb-2 text-xl flex items-center tracking-widest ml-2 transition-all  ease-in-out  ${
             scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
               ? " text-white"
@@ -149,6 +150,87 @@ const ScrollLayout = () => {
           <motion.div
             className={`h-[1px] ${
               scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
+                ? "w-10 bg-white"
+                : "w-0 bg-neutral-700"
+            }  mr-3 transition-all ease-in-out duration-300`}
+          />
+          ABOUT ME
+        </motion.h2>
+        <motion.div
+          variants={item2}
+          className={`flex flex-col md:flex-row items-center justify-between mt-6 ${
+            scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
+              ? " text-white"
+              : " text-neutral-700"
+          }`}
+        >
+          <motion.div
+            variants={item2}
+            className="w-full flex flex-col items-center md:items-start"
+            initial="hidden"
+            whileInView="visible"
+          >
+            <motion.p className="text-center md:text-left text-neutral-400 text-sm mb-4 ml-2">
+              I am a self-motivated front-end developer with a strong drive to
+              excel within collaborative team environments. My passion lies in
+              crafting immersive web experiences using my expertise in HTML,
+              CSS, and JavaScript. With a focus on front-end frameworks like
+              React, I am dedicated to staying at the forefront of software
+              development trends and continuously expanding my technological
+              skills.
+              <br />
+              <br />
+              My journey as a front-end developer has equipped me with a diverse
+              skill set. I specialize in constructing fully responsive web
+              applications using React, from functional to class-based
+              components. With an in-depth understanding of React hooks and
+              component lifecycles, I thrive on creating dynamic user interfaces
+              that deliver exceptional user experiences.
+              <br />
+              <br />I am not just content with my current skill set – I am
+              always eager to learn and grow. I have hands-on experience using
+              TypeScript with React and Angular, and I am adept at utilizing
+              state management tools like Redux Toolkit and React Query for
+              efficient data management. I have seamlessly integrated RESTful
+              APIs using tools like Axios and React Query, enhancing user
+              interactivity and engagement.
+            </motion.p>
+            <motion.div
+              variants={item2}
+              className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-2 cursor-pointer"
+            >
+              <Link href="/about">View full resume</Link>
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      {/* TECH STACK SECTION */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="pt-28 mt-20"
+        id="xp"
+      >
+        <motion.h2
+          variants={item2}
+          // // initial="hidden"
+          // // whileInView="visible"
+          className={`font-bold  mb-2 text-xl flex items-center tracking-widest ml-2 transition-all  ease-in-out  ${
+            scrollYProgress.current > 0.3 && scrollYProgress.current < 0.59
+              ? " text-white"
+              : " text-neutral-700"
+          }`}
+        >
+          <motion.div
+            className={`h-[1px] ${
+              scrollYProgress.current > 0.3 && scrollYProgress.current < 0.59
                 ? "w-10 bg-white"
                 : "w-0 bg-neutral-700"
             }  mr-3 transiton-all ease-in-out duration-300`}
@@ -603,7 +685,7 @@ const ScrollLayout = () => {
           </motion.div>
         </motion.div>
       </motion.div>
-      <div id="xp">
+      <div>
         <div>
           <WorkExpreience scrollYProgress={scrollYProgress} />
           <motion.div
@@ -644,10 +726,9 @@ const ScrollLayout = () => {
           } transition-all ease-in-out duration-300 delay-100 `}
         >
           Built by yours truely using{" "}
-          <span className="text-white underline">NextJS</span>,{" "}
-          <span className="text-white underline">TailwindCSS</span> Framer
-          Motion
-          <span className="text-white underline">NextJS</span>
+          <span className="text-white underline">NextJS</span>,
+          <span className="text-white underline">TailwindCSS</span> and
+          <span className="text-white underline">Framer Motion</span>
         </p>
       </div>
     </div>

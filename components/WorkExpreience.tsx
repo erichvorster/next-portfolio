@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
+import Image from "next/image";
+import ifs from "../public/ifs.svg";
+import disc from "../public/disc.png";
+import Link from "next/link";
 
 const experience = [
   {
@@ -64,6 +68,7 @@ const WorkExperience = ({ scrollYProgress }) => {
       whileInView="visible"
       viewport={{ once: true }}
       className="pt-28 mt-20"
+      id="exp"
     >
       <motion.h2
         variants={item2}
@@ -82,7 +87,7 @@ const WorkExperience = ({ scrollYProgress }) => {
         />
         EXPERIENCE
       </motion.h2>
-      {experience.map((exp) => (
+      {experience.map((exp, i) => (
         <motion.div
           variants={item2}
           key={exp.title}
@@ -98,11 +103,29 @@ const WorkExperience = ({ scrollYProgress }) => {
                     : "w-0 bg-neutral-700"
                 }  mr-3 transiton-all ease-in-out duration-300`}
               />
-              <p className="tex-sm whitespace-nowrap">{exp.date}</p>
+              <p className="text-sm whitespace-nowrap">{exp.date}</p>
             </div>
           </div>
           <div className="w-3/4 pl-12">
-            <div>
+            <div className="flex items-center">
+              <Link
+                href={
+                  i === 0
+                    ? "https://www.infoslips.com/"
+                    : "https://www.discovery.co.za/portal/"
+                }
+                target="_blank"
+              >
+                <Image
+                  className={`${
+                    i === 0 ? "ifs mr-2" : "mr-8"
+                  } mb-2 cursor-pointer hover:scale-125 transition-all ease-in-out`}
+                  src={i === 0 ? ifs : disc}
+                  width={i === 0 ? 40 : 30}
+                  height={i === 0 ? 40 : 30}
+                  alt="ifs"
+                />
+              </Link>
               <h1 className="text-lg mb-2 font-bold text-white">{exp.title}</h1>
             </div>
             <div className="max-w-md">

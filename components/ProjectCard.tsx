@@ -48,7 +48,13 @@ const ProjectCard = ({ proj }) => {
           </div>
 
           <div className="text-gray-300">
-            <p className="mb-1 font-bold  group-hover:text-[#EDEDED] text-xs transition-colors ease-in-out duration-300 tracking-widest">
+            <p
+              className={`mb-1 font-bold ${
+                proj.language.toUpperCase() === "TYPESCRIPT"
+                  ? "group-hover:text-[#007acc]"
+                  : "group-hover:text-[#f7df1e]"
+              }  text-xs transition-colors ease-in-out duration-300 tracking-widest`}
+            >
               {proj.language.toUpperCase()}
             </p>
             <h4 className="mb-1 text-xl font-bold tracking-wide group-hover:text-[#EDEDED] transition-colors ease-in-out duration-300 ">

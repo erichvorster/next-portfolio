@@ -244,7 +244,8 @@ const Bio = () => {
 
   const navLinks = [
     { name: "PROJECTS", href: "/projects" },
-    { name: "TECH STACK", href: "/about" },
+    { name: "ABOUT", href: "/about" },
+    { name: "TECH STACK", href: "/tech" },
     { name: "EXPERIENCE", href: "/contact" },
   ];
 
@@ -322,11 +323,11 @@ const Bio = () => {
               initial="hidden"
               animate="visible"
             >
-              <Link href={"#tech"} className="flex items-center group">
+              <Link href={"#about"} className="flex items-center group">
                 <small
                   className={`text-white text-xs tracking-wider ${
                     scrollYProgress.current > 0.15 &&
-                    scrollYProgress.current < 0.59
+                    scrollYProgress.current < 0.3
                       ? " text-white mr-2"
                       : " text-neutral-700 group-hover:text-white mr-2"
                   }  `}
@@ -336,7 +337,7 @@ const Bio = () => {
                 <motion.div
                   className={`h-[1px] ${
                     scrollYProgress.current > 0.15 &&
-                    scrollYProgress.current < 0.59
+                    scrollYProgress.current < 0.3
                       ? "w-10 bg-white"
                       : "w-5 bg-neutral-700"
                   }  mr-3 transiton-all ease-in-out duration-300 group-hover:w-10 group-hover:bg-white`}
@@ -344,7 +345,7 @@ const Bio = () => {
                 <span
                   className={`text-white text-xs tracking-wider ${
                     scrollYProgress.current > 0.15 &&
-                    scrollYProgress.current < 0.59
+                    scrollYProgress.current < 0.3
                       ? " text-white"
                       : " text-neutral-700 group-hover:text-white"
                   }  `}
@@ -362,13 +363,50 @@ const Bio = () => {
               <Link href={"#xp"} className="flex items-center group">
                 <small
                   className={`text-white text-xs tracking-wider ${
+                    scrollYProgress.current > 0.3 &&
+                    scrollYProgress.current < 0.59
+                      ? " text-white mr-2"
+                      : " text-neutral-700 group-hover:text-white mr-2"
+                  }  `}
+                >
+                  03
+                </small>
+                <motion.div
+                  className={`h-[1px] ${
+                    scrollYProgress.current > 0.3 &&
+                    scrollYProgress.current < 0.59
+                      ? "w-10 bg-white"
+                      : "w-5 bg-neutral-700"
+                  }  mr-3 transiton-all ease-in-out duration-300 group-hover:w-10 group-hover:bg-white `}
+                />
+                <span
+                  className={`text-white text-xs tracking-wider whitespace-nowrap ${
+                    scrollYProgress.current > 0.3 &&
+                    scrollYProgress.current < 0.59
+                      ? "w-10 text-white"
+                      : "w-5 text-neutral-700 group-hover:text-white "
+                  }  `}
+                >
+                  {navLinks[2].name}
+                </span>
+              </Link>
+            </motion.li>
+            <motion.li
+              className="mt-5"
+              variants={liVariant3}
+              initial="hidden"
+              animate="visible"
+            >
+              <Link href={"#exp"} className="flex items-center group">
+                <small
+                  className={`text-white text-xs tracking-wider ${
                     scrollYProgress.current > 0.59 &&
                     scrollYProgress.current < 0.99
                       ? " text-white mr-2"
                       : " text-neutral-700 group-hover:text-white mr-2"
                   }  `}
                 >
-                  03
+                  04
                 </small>
                 <motion.div
                   className={`h-[1px] ${
@@ -386,7 +424,7 @@ const Bio = () => {
                       : "w-5 text-neutral-700 group-hover:text-white"
                   }  `}
                 >
-                  {navLinks[2].name}
+                  {navLinks[3].name}
                 </span>
               </Link>
             </motion.li>
