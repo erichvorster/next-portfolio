@@ -41,9 +41,7 @@ const ContactForm = ({ scrollYProgress }) => {
       }   mx-auto transition-all ease-in-out duration-300`}
     >
       <form
-        onSubmit={handleSubmit}
         className={` w-full  rounded-md p-8 h-[380px]`}
-        action="/contact"
         method="POST"
         data-netlify="true"
       >
