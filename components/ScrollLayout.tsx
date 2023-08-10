@@ -199,7 +199,9 @@ const ScrollLayout = () => {
               variants={item2}
               className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-2 cursor-pointer"
             >
-              <Link href="/about">View full resume</Link>
+              <a href="../public/resume/erichvorster.pdf" download>
+                View full resume
+              </a>
               <FontAwesomeIcon
                 icon={faArrowRight}
                 className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
