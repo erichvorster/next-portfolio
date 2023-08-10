@@ -44,7 +44,9 @@ const ContactForm = ({ scrollYProgress }) => {
         className={` w-full  rounded-md p-8 h-[380px]`}
         method="POST"
         data-netlify="true"
+        name="contact"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <div className="grid grid-cols-2 gap-4">
           <div className="mb-4">
             <label
