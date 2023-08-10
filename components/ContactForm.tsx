@@ -43,6 +43,9 @@ const ContactForm = ({ scrollYProgress }) => {
       <form
         onSubmit={handleSubmit}
         className={` w-full  rounded-md p-8 h-[380px]`}
+        action="/contact"
+        method="POST"
+        data-netlify="true"
       >
         <div className="grid grid-cols-2 gap-4">
           <div className="mb-4">
@@ -113,10 +116,12 @@ const ContactForm = ({ scrollYProgress }) => {
             required
           ></textarea>
         </div>
+
         <div className="flex items-center justify-center">
           <button
             className="border border-neutral-800 font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            value="Send"
           >
             Submit
           </button>

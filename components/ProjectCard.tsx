@@ -18,7 +18,7 @@ const ProjectCard = ({ proj }) => {
   };
 
   return (
-    <Link href={proj.projectLink}>
+    <Link href={proj.projectLink} target="_blank">
       <div
         className={`relative ${
           isHovered ? "opacity-100 text-white" : "text-white opacity-75"
@@ -48,7 +48,7 @@ const ProjectCard = ({ proj }) => {
           </div>
 
           <div className="text-gray-300">
-            <p className="mb-1 font-bold  group-hover:text-[#EDEDED] text-sm transition-colors ease-in-out duration-300 tracking-widest">
+            <p className="mb-1 font-bold  group-hover:text-[#EDEDED] text-xs transition-colors ease-in-out duration-300 tracking-widest">
               {proj.language.toUpperCase()}
             </p>
             <h4 className="mb-1 text-xl font-bold tracking-wide group-hover:text-[#EDEDED] transition-colors ease-in-out duration-300 ">

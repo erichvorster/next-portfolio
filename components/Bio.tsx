@@ -6,9 +6,11 @@ import {
   faLink,
   faMailBulk,
   faEnvelope,
+  faFile,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import erich from "../public/erich.jpg";
 
@@ -433,34 +435,55 @@ const Bio = () => {
             </motion.div>
           </Link>
           <motion.div variants={imgVariant1} initial="hidden" animate="visible">
-            <FontAwesomeIcon
-              icon={faGithub}
-              className={`h-7 w-7  ${
-                scrollYProgress.current > 0.96
-                  ? "text-white"
-                  : "text-neutral-700 "
-              } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer `}
-            />
+            <Link href={"https://github.com/erichvorster"}>
+              <FontAwesomeIcon
+                icon={faGithub}
+                className={`h-7 w-7  ${
+                  scrollYProgress.current > 0.96
+                    ? "text-white"
+                    : "text-neutral-700 "
+                } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
+              />
+            </Link>
           </motion.div>
           <motion.div variants={imgVariant2} initial="hidden" animate="visible">
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              className={`h-7 w-7  ${
-                scrollYProgress.current > 0.96
-                  ? "text-white"
-                  : "text-neutral-700 "
-              } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
-            />
+            <Link
+              href={"https://www.linkedin.com/in/erichvorster/"}
+              target="_blank"
+            >
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                className={`h-7 w-7  ${
+                  scrollYProgress.current > 0.96
+                    ? "text-white"
+                    : "text-neutral-700 "
+                } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
+              />
+            </Link>
           </motion.div>
           <motion.div variants={imgVariant3} initial="hidden" animate="visible">
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className={`h-7 w-7  ${
-                scrollYProgress.current > 0.96
-                  ? "text-white"
-                  : "text-neutral-700"
-              } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
-            />
+            <Link href={"mailto:erichvorster1@gmail.com"} target="_blank">
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className={`h-7 w-7  ${
+                  scrollYProgress.current > 0.96
+                    ? "text-white"
+                    : "text-neutral-700"
+                } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
+              />
+            </Link>
+          </motion.div>
+          <motion.div variants={imgVariant3} initial="hidden" animate="visible">
+            <Link href={"mailto:erichvorster1@gmail.com"} target="_blank">
+              <FontAwesomeIcon
+                icon={faFile}
+                className={`h-7 w-7  ${
+                  scrollYProgress.current > 0.96
+                    ? "text-white"
+                    : "text-neutral-700"
+                } transition-all ease-in-out  duration-300 hover:scale-125 cursor-pointer hover:text-white`}
+              />
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 
 const WavingHand = () => {
-  console.log("hello world");
-
   return (
     <motion.div
       style={{
