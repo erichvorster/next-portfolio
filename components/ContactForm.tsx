@@ -30,37 +30,25 @@ const ContactForm = ({ scrollYProgress }) => {
 
   return (
     <motion.div
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className={` w-full border  border-neutral-800 rounded-lg ${
-        scrollYProgress.current > 0.96
-          ? "border-1 border-white shadow-md shadow-white/25 bg-neutral-800"
-          : "border-neutral-700"
-      }   mx-auto transition-all ease-in-out duration-300`}
+      className={`w-full md:bg-[#081e1e] rounded-lg  mx-auto transition-all ease-in-out duration-300`}
     >
       <form
-        className={` w-full  rounded-md p-8 h-[380px]`}
+        className={`w-full rounded-md md:p-8 `}
         method="POST"
         data-netlify="true"
         name="contact"
       >
         <input type="hidden" name="form-name" value="contact" />
-        <div className="grid grid-cols-2 gap-4">
-          <div className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
             <label
-              className="block font-bold mb-2 text-neutral-700 text-xs uppercase"
+              className="block  mb-2 text-gray text-xs uppercase"
               htmlFor="name"
             >
               Name
             </label>
             <input
-              className={`shadow ${
-                scrollYProgress.current > 0.96
-                  ? "border-1 border-white bg-neutral-800"
-                  : "border-neutral-700 bg-neutral-900"
-              }  appearance-none border transition-all ease-in-out duration-300 rounded focus-within:bg-neutral-800 w-full py-2 px-3 text-neutral-400 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
+              className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline`}
               id="name"
               type="text"
               name="name"
@@ -70,19 +58,15 @@ const ContactForm = ({ scrollYProgress }) => {
               required
             />
           </div>
-          <div className="mb-4">
+          <div>
             <label
-              className="block text-neutral-700 text-xs uppercase font-bold mb-2"
+              className="block text-gray text-xs uppercase  mb-2"
               htmlFor="email"
             >
               Email
             </label>
             <input
-              className={`shadow ${
-                scrollYProgress.current > 0.96
-                  ? "border-1 border-white bg-neutral-800"
-                  : "border-neutral-700 bg-neutral-900"
-              }  appearance-none border transition-all ease-in-out duration-300 rounded focus-within:bg-neutral-800 w-full py-2 px-3 text-neutral-400 border-neutral-800  leading-tight focus:outline-none focus:shadow-outline`}
+              className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline`}
               id="email"
               type="email"
               name="email"
@@ -94,19 +78,15 @@ const ContactForm = ({ scrollYProgress }) => {
           </div>
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 md:pt-4">
           <label
-            className="block  font-bold mb-2 text-neutral-700 text-xs uppercase"
+            className="block mb-2 text-gray text-xs uppercase"
             htmlFor="message"
           >
             Message
           </label>
           <textarea
-            className={`shadow ${
-              scrollYProgress.current > 0.96
-                ? "border-1 border-white bg-neutral-800"
-                : "border-neutral-700 bg-neutral-900"
-            }  appearance-none border transition-all ease-in-out duration-300 rounded focus:bg-neutral-800 w-full py-2 px-3 text-neutral-400 border-neutral-800 leading-tight focus:outline-none focus:shadow-outline`}
+            className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline`}
             id="message"
             name="message"
             rows="8"
@@ -117,17 +97,13 @@ const ContactForm = ({ scrollYProgress }) => {
           ></textarea>
         </div>
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ">
           <button
-            className={`border ${
-              scrollYProgress.current > 0.96
-                ? "border-1 border-white bg-neutral-800"
-                : "border-neutral-700 bg-neutral-900"
-            }  text-gray-500 border-neutral-800 font-noraml hover:bg-gray-700  transiton-all ease-in-out font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline`}
+            className={`px-10 text-secondary font-noraml bg-[#36544c] hover:bg-[#36544c]/75 text-sm transiton-all ease-in-out duration-150 py-2 rounded-lg focus:outline-none focus:shadow-outline`}
             type="submit"
             value="Send"
           >
-            Submit
+            Send
           </button>
         </div>
       </form>

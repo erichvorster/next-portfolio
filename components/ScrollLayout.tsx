@@ -4,7 +4,8 @@ import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import WorkExpreience from "./WorkExpreience";
 import ContactForm from "./ContactForm";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import useIsDesktop from "../hooks/useIsDesktop";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Hi from "./WavingHand";
@@ -14,7 +15,7 @@ const projects = [
     language: "TypeScript",
     projectName: "DSTV Now Clone",
     projectDescription:
-      "A clone of the popular South African streaming service DSTV Now.",
+      "A clone of the South African streaming service DSTV Now, featuring user authentication, dynamic TV shows and movies fetched from the TMDB API, and responsive design using TailwindCSS.",
     projectLink: "https://stunning-donut-f45f69.netlify.app",
     githubLink: "https://github.com/erichvorster/nextjs-dstv-clone",
     tech: ["NextJS", "JavaScript", "TailwindCSS", "TMDB API"],
@@ -22,7 +23,8 @@ const projects = [
   {
     language: "JavaScript",
     projectName: "Crypto Tracker",
-    projectDescription: "A simple crypto tracker app",
+    projectDescription:
+      "A crypto tracker app that monitors real-time prices and trends of various cryptocurrencies using the Coinranking API, presented in a user-friendly interface with MaterialUI.",
     projectLink: "https://jocular-dusk-7ef7f0.netlify.app",
     githubLink: "https://github.com/erichvorster/react-crypto-site",
     tech: ["React", "JavaScript", "MaterialUI", "Coinranking API"],
@@ -30,7 +32,8 @@ const projects = [
   {
     language: "JavaScript",
     projectName: "Wifi Provider Site",
-    projectDescription: "A site for a wifi provider company",
+    projectDescription:
+      "A sleek website for a wifi provider company, built with SCSS for styling and GSAP for animations. It includes service details, pricing plans, and customer testimonials.",
     projectLink: "https://roaring-mochi-4de1e0.netlify.app",
     githubLink: "https://github.com/erichvorster/fibr",
     tech: ["JavaScript", "SCSS", "GSAP"],
@@ -76,6 +79,7 @@ const item2 = {
 };
 
 const ScrollLayout = () => {
+  const isDesktop = useIsDesktop();
   const { scrollYProgress } = useScroll();
   const [scrollProgress, setScrollProgress] = useState(0);
   // Update the scroll progress whenever it changes
@@ -86,8 +90,8 @@ const ScrollLayout = () => {
   console.log(scrollYProgress);
 
   return (
-    <div className="mt-28">
-      {/* Projects section */}
+    <div className="mt-14 lg:mt-28">
+      {/* ABOUT SECTION */}
       <motion.div
         variants={container2}
         initial="hidden"
@@ -95,18 +99,86 @@ const ScrollLayout = () => {
         whileInView="visible"
       >
         <motion.h2
-          variants={item}
-          className={`font-bold flex items-center mt-4 text-xl tracking-widest ml-2  mb-12 ${
-            scrollYProgress.current < 0.15 ? " text-white" : " text-neutral-700"
-          }`}
+          variants={item2}
+          className={`font-bold lg:hidden flex mb-8 text-md lg:text-lg md:text-lg items-center tracking-widest  transition-all  ease-in-out  text-[#d3d4cf] `}
+        >
+          {/* <motion.div
+            className={`h-[1px] ${
+              scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
+                ? "w-10 bg-white"
+                : "w-0 bg-neutral-700"
+            }  mr-3 transition-all ease-in-out duration-300`}
+          /> */}
+          ABOUT
+        </motion.h2>
+        <motion.div
+          variants={item2}
+          className={`flex flex-col md:flex-row items-center justify-between text-white`}
         >
           <motion.div
+            className="w-full flex flex-col items-start"
+            initial="hidden"
+            whileInView="visible"
+          >
+            <motion.p className="leading-6 text-gray text-md mb-4">
+              I&apos;m a <span className="text-white">self-motivated</span>{" "}
+              front-end developer passionate about crafting immersive web
+              experiences. My expertise lies in{" "}
+              <span className="text-neutral-200">HTML</span>,{" "}
+              <span className="text-neutral-200">CSS</span>, and{" "}
+              <span className="text-neutral-200">JavaScript</span>, with a
+              strong focus on <span className="text-neutral-200">React</span>{" "}
+              and <span className="text-neutral-200">Next.js</span>. I stay
+              current with software trends and continuously expand my skills.
+              <br />
+              <br />I specialize in building{" "}
+              <span className="text-white">fully responsive</span> web
+              applications using <span className="text-white">React</span> and{" "}
+              <span className="text-white">Next.js 14</span>, from{" "}
+              <span className="text-white">
+                functional to class-based components
+              </span>
+              . With a solid grasp of{" "}
+              <span className="text-white">React hooks</span> and{" "}
+              <span className="text-white">component lifecycles</span>, I create
+              dynamic user interfaces that deliver exceptional experiences.
+              <br />
+              <br />
+              I&apos;m always eager to learn and grow. Recently, I&apos;ve
+              delved into cloud technologies and plan to explore AI next. I have
+              hands-on experience with{" "}
+              <span className="text-white">TypeScript</span> and{" "}
+              <span className="text-white">Angular</span>, and I&apos;m
+              proficient in state management tools like{" "}
+              <span className="text-white">Redux Toolkit</span> and{" "}
+              <span className="text-white">React Query</span>. I enjoy
+              integrating <span className="text-white">RESTful APIs</span> with
+              tools like Axios and React Query, and I leverage{" "}
+              <span className="text-white">AWS</span> for cloud solutions to
+              enhance interactivity and engagement in applications.
+            </motion.p>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+      {/* Projects section */}
+      <motion.div
+        variants={isDesktop ? container2 : {}}
+        initial="hidden"
+        viewport={{ once: true }}
+        whileInView="visible"
+        id="about"
+      >
+        <motion.h2
+          variants={item}
+          className={`font-bold flex items-center pt-14  mt-10 md:mt-20 text-md lg:text-lg md:text-lg tracking-widest  mb-12 text-white`}
+        >
+          {/* <motion.div
             className={`h-[1px] ${
               scrollYProgress.current < 0.15
                 ? "w-10 bg-white"
                 : "w-0 bg-neutral-700"
             }  mr-3 transiton-all ease-in-out duration-300`}
-          />
+          /> */}
           PERSONAL PROJECTS
         </motion.h2>
         <motion.div className="group/bg">
@@ -118,172 +190,33 @@ const ScrollLayout = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="flex items-center text-neutral-600 hover:text-white  transition-all ease-in-out duration-300 group mt-6 ml-4 cursor-pointer"
+          className="flex items-center text-gray hover:text-white transition-all ease-in-out duration-300 group mt-6 ml-0 md:ml-4 cursor-pointer"
         >
-          <Link href="https://github.com/erichvorster" target="_blank">
+          <Link
+            href="https://github.com/erichvorster"
+            target="_blank"
+            id="projects"
+          >
             More projects{" "}
           </Link>
           <FontAwesomeIcon
             icon={faArrowRight}
-            className="h-4 w-4 text-neutral-600 transition-all ease-in-out duration-300 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
+            className="h-4 w-4 text-gray transition-all ease-in-out duration-150 hover:scale-125 group-hover:text-white group-hover:translate-x-2 ml-2"
           />
         </motion.div>
       </motion.div>
-
-      {/* ABOUT SECTION */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="pt-28 mt-20"
-        id="about"
-      >
-        <motion.h2
-          variants={item2}
-          className={`font-bold  mb-2 text-xl flex items-center tracking-widest ml-2 transition-all  ease-in-out  ${
-            scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
-              ? " text-white"
-              : " text-neutral-700"
-          }`}
-        >
-          <motion.div
-            className={`h-[1px] ${
-              scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
-                ? "w-10 bg-white"
-                : "w-0 bg-neutral-700"
-            }  mr-3 transition-all ease-in-out duration-300`}
-          />
-          ABOUT ME
-        </motion.h2>
-        <motion.div
-          variants={item2}
-          className={`flex flex-col md:flex-row items-center justify-between mt-6 ${
-            scrollYProgress.current > 0.15 && scrollYProgress.current < 0.59
-              ? " text-white"
-              : " text-neutral-700"
-          }`}
-        >
-          <motion.div
-            variants={item2}
-            className="w-full flex flex-col items-center md:items-start"
-            initial="hidden"
-            whileInView="visible"
-          >
-            <motion.p className="text-center md:text-left text-neutral-400 text-sm mb-4 ml-2">
-              I am a{" "}
-              <span className="text-neutral-200 underline underline-offset-4">
-                self-motivated
-              </span>{" "}
-              front-end developer with a strong drive to excel within
-              collaborative team environments. My passion lies in crafting
-              immersive web experiences using my expertise in{" "}
-              <span className="text-neutral-200 underline underline-offset-4">
-                HTML
-              </span>
-              ,{" "}
-              <span className="text-neutral-200 underline underline-offset-4">
-                CSS
-              </span>
-              , and
-              <span className="text-neutral-200 underline underline-offset-4">
-                {" "}
-                JavaScript
-              </span>
-              . With a focus on front-end frameworks like{" "}
-              <span className="text-neutral-200 underline underline-offset-4">
-                React
-              </span>
-              , I am dedicated to staying at the forefront of software
-              development trends and continuously expanding my technological
-              skills.
-              <br />
-              <br />
-              My journey as a front-end developer has equipped me with a diverse
-              skill set. I specialize in constructing{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                fully responsive
-              </span>{" "}
-              web applications using{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                React,
-              </span>{" "}
-              from{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                functional to class-based components
-              </span>
-              . With an in-depth understanding of{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                React hooks
-              </span>{" "}
-              and{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                component lifecycles
-              </span>
-              , I thrive on creating dynamic user interfaces that deliver
-              exceptional user experiences.
-              <br />
-              <br />I am not just content with my current skill set – I am
-              always eager to learn and grow. I have hands-on experience using
-              <span className="text-neutral-300 underline underline-offset-2">
-                TypeScript
-              </span>{" "}
-              with{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                React
-              </span>{" "}
-              and{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                Angular
-              </span>
-              , and I am adept at utilizing state management tools like{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                Redux Toolkit
-              </span>{" "}
-              and React Query for efficient data management. I have seamlessly
-              integrated{" "}
-              <span className="text-neutral-300 underline underline-offset-2">
-                RESTful APIs
-              </span>{" "}
-              using tools like Axios and React Query, enhancing user
-              interactivity and engagement.
-            </motion.p>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-
       {/* TECH STACK SECTION */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="pt-28 mt-20"
-        id="xp"
-      >
+      <motion.div className=" pt-20 md:pt-28 mt-20" id="xp">
         <motion.h2
-          variants={item2}
           // // initial="hidden"
           // // whileInView="visible"
-          className={`font-bold  mb-2 text-xl flex items-center tracking-widest ml-2 transition-all  ease-in-out  ${
-            scrollYProgress.current > 0.3 && scrollYProgress.current < 0.59
-              ? " text-white"
-              : " text-neutral-700"
-          }`}
+          className={`font-bold mb-2 text-md lg:text-lg md:text-lg flex items-center tracking-widest md:ml-2 transition-all  ease-in-out  text-white`}
         >
-          <motion.div
-            className={`h-[1px] ${
-              scrollYProgress.current > 0.3 && scrollYProgress.current < 0.59
-                ? "w-10 bg-white"
-                : "w-0 bg-neutral-700"
-            }  mr-3 transiton-all ease-in-out duration-300`}
-          />
-          TECH STACK
+          TECH I USE
         </motion.h2>
-        <motion.div className="grid grid-cols-3 gap-4 px-2 mt-12  ">
+        <motion.div className="grid grid-cols-3 gap-2 md:px-2 mt-12  ">
           <motion.div
-            className=" bg-neutral-800  rounded item p-2 "
-            variants={item}
+            className=" bg-[#081e1e]  rounded item p-2 "
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -322,8 +255,7 @@ const ScrollLayout = () => {
           </motion.div>
 
           <motion.div
-            className=" bg-neutral-800 rounded item p-6 relative "
-            variants={item}
+            className=" bg-[#081e1e] rounded-md item p-6 relative "
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -352,10 +284,8 @@ const ScrollLayout = () => {
               </Link>
             </div>
           </motion.div>
-
           <motion.div
-            className=" bg-neutral-800  rounded item p-6"
-            variants={item}
+            className=" bg-[#081e1e]  rounded-md item p-6"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -373,8 +303,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className="col-span-2 row-span-2  bg-neutral-800 h-full rounded item p-8"
-            variants={item}
+            className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md item p-8"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -395,8 +324,7 @@ const ScrollLayout = () => {
             </motion.div>
           </motion.div>
           <motion.div
-            className=" bg-neutral-800  rounded item p-6"
-            variants={item}
+            className=" bg-[#081e1e]  rounded-md item p-6"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -413,8 +341,7 @@ const ScrollLayout = () => {
           </motion.div>
 
           <motion.div
-            className="col-span-1  bg-neutral-800  rounded item p-6"
-            variants={item}
+            className="col-span-1  bg-[#081e1e]  rounded-md item p-6"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -451,8 +378,7 @@ const ScrollLayout = () => {
           </motion.div>
 
           <motion.div
-            className=" bg-neutral-800  rounded item p-4"
-            variants={item}
+            className=" bg-[#081e1e]  rounded-md item p-4"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -475,8 +401,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className="col-span-2 row-span-2  bg-neutral-800 h-full rounded p-8"
-            variants={item}
+            className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md p-8"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -489,8 +414,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className="col-span-1  bg-neutral-800  rounded item p-4"
-            variants={item}
+            className="col-span-1  bg-[#081e1e] rounded-md item p-4"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -510,8 +434,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className="col-span-2 row-span-2  bg-neutral-800 h-full rounded item p-8"
-            variants={item}
+            className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md item p-8"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -529,8 +452,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className=" bg-neutral-800  rounded item p-4"
-            variants={item}
+            className=" bg-[#081e1e]  rounded-md item p-4"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -559,8 +481,7 @@ const ScrollLayout = () => {
           </motion.div>
 
           <motion.div
-            className="col-span-1  bg-neutral-800  rounded item p-4"
-            variants={item}
+            className="col-span-1  bg-[#081e1e]  rounded-md item p-4"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -639,8 +560,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className=" bg-neutral-800  rounded item p-2"
-            variants={item}
+            className=" bg-[#081e1e]  rounded-md item p-2"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -656,8 +576,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className=" bg-neutral-800  rounded item p-4"
-            variants={item}
+            className=" bg-[#081e1e] rounded-md item p-4"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -673,8 +592,7 @@ const ScrollLayout = () => {
             </Link>
           </motion.div>
           <motion.div
-            className=" bg-neutral-800 rounded item p-4"
-            variants={item}
+            className=" bg-[#081e1e] rounded-md item p-4"
             whileHover={{
               scale: 0.8,
               rotate: -10,
@@ -733,33 +651,19 @@ const ScrollLayout = () => {
           <WorkExpreience scrollYProgress={scrollYProgress} />
         </div>
       </div>
-      <div className=" mb-[115px] pt-52" id="contact">
+      <div className=" mb-[115px] pt-24 md:pt-52" id="contact">
         <h1
-          className={`font-bold  mb-2 text-xl tracking-widest transition-all  flex items-center last:ease-in-out  ${
-            scrollYProgress.current > 0.9 ? " text-white" : " text-neutral-700"
-          }`}
+          className={`font-bold  mb-10 text-md lg:text-lg md:text-lg text-white tracking-widest transition-all  flex items-center last:ease-in-out`}
         >
-          <motion.div
-            className={`h-[1px] ${
-              scrollYProgress.current > 0.9
-                ? "w-10 bg-white"
-                : "w-0 bg-neutral-700"
-            }  mr-3 transiton-all ease-in-out duration-300`}
-          />{" "}
           SAY HI
           <Hi />
         </h1>
         <ContactForm scrollYProgress={scrollYProgress} />
 
         <p
-          className={`text-neutral-500 mt-[60px] text-sm text-center ${
-            scrollYProgress.current > 0.99 ? "opacity-100" : "opacity-25"
-          } transition-all ease-in-out duration-300 delay-100 `}
+          className={`text-gray mt-[100px] text-sm text-center  transition-all ease-in-out duration-300 delay-100 `}
         >
-          Built by yours truely using{" "}
-          <span className="text-white underline">NextJS</span>,
-          <span className="text-white underline">TailwindCSS</span> and
-          <span className="text-white underline">Framer Motion</span>
+          Built by yours truely
         </p>
       </div>
     </div>

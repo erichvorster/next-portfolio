@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
    
 }
 html {
@@ -12,11 +12,20 @@ html {
   }
 
 body{
-  background-color: #171717;
+  background-color: var(--primary-color);
 }
 
 .icon{
     color:red !important;
+}
+
+/* styles.css */
+:root {
+  --primary-color: #0b2b2b;
+  --secondary-color: #5deb5b;
+  --tertiary-color: #36544c;
+  --white:#fdfdfd;
+  --gray:#84949c;
 }
 
 
@@ -71,3 +80,95 @@ body{
     transition: all 0.5s ease-in-out;
     transform: scale(1.1);
   }
+
+
+.custom-blob {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height:250px;
+  border-radius: 100%;
+  background-image: radial-gradient(circle, #0b2b2b 0%, #36544c 70%);
+  filter: blur(60px);
+  transition: all 450ms ease-out;
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: -1;
+}
+
+.custom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.custom-content-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.custom-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-content h1 {
+  font-size: 3vw;
+  text-align: center;
+}
+
+.custom-content p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.custom-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.custom-buttons a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 2rem;
+  margin: 0px 6px;
+  border-radius: 25px;
+}
+
+.custom-buttons a:nth-child(1) {
+  color: #121212;
+  background-color: #ffffff;
+  transition: all .3s ease;
+}
+
+.custom-buttons a:nth-child(2) {
+  border: 1px solid #fff;
+  transition: all .3s ease;
+}
+
+@media only screen and (max-width: 700px) {
+  .custom-content-parent {
+    width: 90%;
+  }
+
+  .custom-content h1 {
+    font-size: 2rem;
+  }
+
+  .custom-buttons a {
+    padding: 6px 1rem;
+  }
+}

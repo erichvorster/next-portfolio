@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const experience = [
   {
-    title: "Front End Developer / InfoSlips",
-    date: "Aug 2022 ",
+    title: "Front End Developer · InfoSlips",
+    date: "2022 — PRESENT",
     para: "Experienced Front End Developer specializing in correspondence and communication at InfoSlips. Skilled in building and maintaining web applications using React, Angular, and modern frameworks. Proficient in ensuring mobile responsiveness, leveraging UI libraries like Bootstrap, and collaborating with design teams. Expertise in bug fixes, code reviews, NPM package utilization, CMS integration, and version control with Git.",
     tools: [
       "React",
@@ -25,8 +25,8 @@ const experience = [
     ],
   },
   {
-    title: "Business Development Consultant / Discovery Limited",
-    date: "Sep 2019 ",
+    title: "Business Development Consultant · Discovery Limited",
+    date: "2019 — 2022",
     para: "Former Business Development Consultant at Discovery Limited, bringing valuable skills to the role of Front End Developer. Developed project plans and strategies to drive sales and identify business opportunities. Collaborated with business analytics to analyze data and address growth areas. Established strong relationships with financial advisors, enhancing communication and interpersonal skills. Proficient in understanding user needs, facilitating training sessions, and effectively communicating complex information.",
     tools: [],
   },
@@ -62,86 +62,35 @@ const item2 = {
 
 const WorkExperience = ({ scrollYProgress }) => {
   return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="pt-28 mt-20"
-      id="exp"
-    >
+    <motion.div className=" pt-16 md:pt-28 mt-20 " id="exp">
       <motion.h2
-        variants={item2}
-        className={`font-bold  mb-2 text-xl flex items-center tracking-widest transition-all  ease-in-out  ${
-          scrollYProgress.current > 0.59 && scrollYProgress.current < 0.96
-            ? " text-white"
-            : " text-neutral-700"
-        }`}
+        className={`font-bold  mb-10 text-md lg:text-lg md:text-lg text-white flex items-center tracking-widest`}
       >
-        <motion.div
-          className={`h-[1px] ${
-            scrollYProgress.current > 0.59 && scrollYProgress.current < 0.96
-              ? "w-10 bg-white"
-              : "w-0 bg-neutral-700"
-          }  mr-3 transiton-all ease-in-out duration-300`}
-        />
         EXPERIENCE
       </motion.h2>
       {experience.map((exp, i) => (
         <motion.div
-          variants={item2}
           key={exp.title}
-          className="flex text-neutral-400/75 text-sm mt-12  hover:border-2-white  rounded-md transition-all ease-in-out mb-12"
+          className="flex flex-col md:flex-row text-gray text-sm  md:bg-[#081e1e] md:p-5 hover:border-2-white  rounded-md transition-all ease-in-out mb-6"
         >
-          <div className="w-1/4">
+          <div className=" w-full md:w-1/4">
             <div className="flex items-center">
-              <motion.div
-                className={`h-[1px] ${
-                  scrollYProgress.current > 0.59 &&
-                  scrollYProgress.current < 0.96
-                    ? "w-5 bg-white"
-                    : "w-0 bg-neutral-700"
-                }  mr-3 transiton-all ease-in-out duration-300`}
-              />
-              <p className="text-sm whitespace-nowrap">{exp.date}</p>
+              <p className="text-xs md:text-sm whitespace-nowrap mt-1 mb-2">
+                {exp.date}
+              </p>
             </div>
           </div>
-          <div className="w-3/4 pl-12">
+          <div className="w-full md:w-3/4 md:pl-6">
             <div className="flex items-center">
-              <Link
-                href={
-                  i === 0
-                    ? "https://www.infoslips.com/"
-                    : "https://www.discovery.co.za/portal/"
-                }
-                target="_blank"
-              >
-                <Image
-                  className={`${
-                    i === 0 ? "ifs mr-2" : "mr-8"
-                  } mb-2 cursor-pointer hover:scale-125 transition-all ease-in-out`}
-                  src={i === 0 ? ifs : disc}
-                  width={i === 0 ? 40 : 30}
-                  height={i === 0 ? 40 : 30}
-                  alt="ifs"
-                />
-              </Link>
-              <h1 className="text-lg mb-2 font-bold text-white">{exp.title}</h1>
+              <h1 className="text-lg mb-2  text-white">{exp.title}</h1>
             </div>
             <div className="max-w-md">
               <p className="">{exp.para}</p>
             </div>
-            <motion.div
-              variants={container}
-              initial="hidden"
-              viewport={{ once: true }}
-              whileInView="visible"
-              className="flex flex-wrap mt-4"
-            >
+            <motion.div className="flex flex-wrap mt-4">
               {exp.tools.map((tool) => (
                 <motion.div
-                  variants={item2}
-                  className="px-3 py-1 rounded-full bg-neutral-700 mr-1 mb-1"
+                  className="px-3 py-1 rounded-full bg-tertiary text-secondary mr-1 mb-1"
                   key={tool}
                 >
                   {tool}
