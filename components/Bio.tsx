@@ -224,7 +224,7 @@ const Bio = () => {
           animate="visible"
         >
           <Link
-            href="https://www.linkedin.com/in/erichvorster/"
+            href="https://www.instagram.com/erich_vorster/?hl=en"
             target="_blank"
           >
             <FontAwesomeIcon

@@ -15,6 +15,7 @@ const _document = () => {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         ></link>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
         <Main />

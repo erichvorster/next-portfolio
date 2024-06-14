@@ -214,7 +214,7 @@ const ScrollLayout = () => {
         >
           TECH I USE
         </motion.h2>
-        <motion.div className="grid grid-cols-3 gap-2 md:px-2 mt-12  ">
+        <motion.div className="grid grid-cols-3 gap-2  mt-12  ">
           <motion.div
             className=" bg-[#081e1e]  rounded item p-2 "
             whileHover={{
@@ -651,7 +651,7 @@ const ScrollLayout = () => {
           <WorkExpreience scrollYProgress={scrollYProgress} />
         </div>
       </div>
-      <div className=" mb-[115px] pt-24 md:pt-52" id="contact">
+      <div className=" mb-[50px] pt-24 md:pt-52" id="contact">
         <h1
           className={`font-bold  mb-10 text-md lg:text-lg md:text-lg text-white tracking-widest transition-all  flex items-center last:ease-in-out`}
         >
@@ -661,7 +661,7 @@ const ScrollLayout = () => {
         <ContactForm scrollYProgress={scrollYProgress} />
 
         <p
-          className={`text-gray mt-[100px] text-sm text-center  transition-all ease-in-out duration-300 delay-100 `}
+          className={`text-gray mt-[50px] text-sm text-center  transition-all ease-in-out duration-300 delay-100 `}
         >
           Built by yours truely
         </p>
