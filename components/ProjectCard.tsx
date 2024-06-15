@@ -1,67 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectCard = ({ proj }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Function to check screen size
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768); // md breakpoint
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleHover = () => {
-    setIsHovered(true);
+    if (isDesktop) setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
+    if (isDesktop) setIsHovered(false);
   };
 
   return (
     <Link href={proj.projectLink} target="_blank">
       <div
         className={`relative ${
-          isHovered ? "opacity-100 text-white" : "text-white opacity-75"
-        } group/gradient hover:cursor-pointer `}
+          isHovered ? "text-white" : "text-white"
+        } group/gradient hover:cursor-pointer`}
         onMouseEnter={handleHover}
         onMouseLeave={handleMouseLeave}
       >
         <motion.div
-          whileHover={{ scale: 1.1 }}
+          whileHover={isDesktop ? { scale: 1.1 } : {}}
           whileTap={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 500, damping: 17 }}
-          className="bg-transparent md:bg-[#081e1e] hover:bg-[#081e1e] hover:shadow-2xl  md:px-14 md:py-10 mb-12 md:mb-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors"
+          className="bg-transparent md:bg-[#081e1e] hover:bg-[#081e1e] hover:shadow-2xl md:px-14 md:py-10 mb-12 md:mb-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors"
         >
-          <div className="flex justify-between">
-            {/*      
-          <div className="flex w-16 justify-between">
-            <FontAwesomeIcon
-              icon={faGithub}
-              className="h-6 w-6 text-transparent group-hover:text-[#6e5494] transition-all ease-in-out duration-700 hover:scale-125"
-            />
-            <FontAwesomeIcon
-              icon={faLink}
-              className="h-6 w-6 text-transparent group-hover:text-[#4078c0] transition-all ease-in-out duration-700 hover:scale-125"
-              style={{ fill: "#000" }}
-            />
-          </div> */}
-          </div>
-
+          <div className="flex justify-between"></div>
           <div className="text-gray-300">
             <p
-              className={`mb-1 font-bold text-gray  text-xs transition-colors ease-in-out duration-300 tracking-widest pb-2`}
+              className={`mb-1 font-bold text-gray text-xs transition-colors ease-in-out duration-300 tracking-widest pb-2`}
             >
               {proj.language.toUpperCase()}
             </p>
-            <h4 className="mb-1 text-md md:text-xl font-bold tracking-wide  text-white  transition-colors ease-in-out duration-300 ">
+            <h4 className="mb-1 text-md md:text-xl font-bold tracking-wide text-white transition-colors ease-in-out duration-300">
               {proj.projectName}{" "}
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="h-4 w-4 md:h-5 md:w-5 text-white -rotate-45 mt-1  ml-1"
-              />
+              <motion.div
+                animate={isHovered ? { y: -5, x: 5 } : { y: 0, x: 0 }}
+                className="inline-block"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="h-4 w-4 md:h-5 md:w-5 text-white -rotate-45 mt-1 ml-1"
+                />
+              </motion.div>
             </h4>
-            <p className="text-sm leading-[20px] text-gray  transition-colors ease-in-out duration-300 ">
+            <p className="text-sm leading-[20px] text-gray transition-colors ease-in-out duration-300">
               {proj.projectDescription}
             </p>
             <div className="flex flex-wrap mt-3 md:mt-2">

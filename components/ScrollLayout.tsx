@@ -109,7 +109,8 @@ const ScrollLayout = () => {
                 : "w-0 bg-neutral-700"
             }  mr-3 transition-all ease-in-out duration-300`}
           /> */}
-          ABOUT
+          ABOUT{" "}
+          <span className="text-2xl md:text-4xl ml-2 md:ml-4 mb-2">🙋‍♂️</span>
         </motion.h2>
         <motion.div
           variants={item2}
@@ -179,7 +180,8 @@ const ScrollLayout = () => {
                 : "w-0 bg-neutral-700"
             }  mr-3 transiton-all ease-in-out duration-300`}
           /> */}
-          PERSONAL PROJECTS
+          PERSONAL PROJECTS{" "}
+          <span className="text-2xl md:text-4xl ml-2 md:ml-4 mb-2">🧑‍💻</span>
         </motion.h2>
         <motion.div className="group/bg">
           {projects.map((proj, i) => (
@@ -212,15 +214,20 @@ const ScrollLayout = () => {
           // // whileInView="visible"
           className={`font-bold mb-2 text-md lg:text-lg md:text-lg flex items-center tracking-widest md:ml-2 transition-all  ease-in-out  text-white`}
         >
-          TECH I USE
+          TECH I USE{" "}
+          <span className="text-2xl md:text-4xl ml-2 md:ml-4 mb-2">💻</span>
         </motion.h2>
         <motion.div className="grid grid-cols-3 gap-2  mt-12  ">
           <motion.div
             className=" bg-[#081e1e]  rounded item p-2 "
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <div className="    ">
               <div className=" z-10">
@@ -256,10 +263,14 @@ const ScrollLayout = () => {
 
           <motion.div
             className=" bg-[#081e1e] rounded-md item p-6 relative "
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <div className="   ">
               <Link href="https://www.w3schools.com/html/" target="_blank">
@@ -286,10 +297,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className=" bg-[#081e1e]  rounded-md item p-6"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://sass-lang.com/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -304,10 +319,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md item p-8"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <motion.div
               animate={{ rotate: 360 }}
@@ -325,10 +344,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className=" bg-[#081e1e]  rounded-md item p-6"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://angular.io/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -342,10 +365,14 @@ const ScrollLayout = () => {
 
           <motion.div
             className="col-span-1  bg-[#081e1e]  rounded-md item p-6"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://www.w3schools.com/css/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -379,10 +406,14 @@ const ScrollLayout = () => {
 
           <motion.div
             className=" bg-[#081e1e]  rounded-md item p-4"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
@@ -402,10 +433,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md p-8"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href={"https://nextjs.org/"} target="_blank">
               <svg viewBox="0 0 128 128">
@@ -415,10 +450,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className="col-span-1  bg-[#081e1e] rounded-md item p-4"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://github.com/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -435,10 +474,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md item p-8"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://www.typescriptlang.org/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -453,10 +496,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className=" bg-[#081e1e]  rounded-md item p-4"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://mui.com/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -482,10 +529,14 @@ const ScrollLayout = () => {
 
           <motion.div
             className="col-span-1  bg-[#081e1e]  rounded-md item p-4"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://getbootstrap.com/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -561,10 +612,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className=" bg-[#081e1e]  rounded-md item p-2"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://www.npmjs.com/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -577,10 +632,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className=" bg-[#081e1e] rounded-md item p-4"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link href="https://jquery.com/" target="_blank">
               <svg viewBox="0 0 128 128">
@@ -593,10 +652,14 @@ const ScrollLayout = () => {
           </motion.div>
           <motion.div
             className=" bg-[#081e1e] rounded-md item p-4"
-            whileHover={{
-              scale: 0.8,
-              rotate: -10,
-            }}
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
           >
             <Link
               href="https://www.atlassian.com/software/jira?&aceid=&adposition=&adgroup=140479881486&campaign=18442480203&creative=663390759269&device=c&keyword=jira&matchtype=e&network=g&placement=&ds_kids=p73335832032&ds_e=GOOGLE&ds_eid=700000001558501&ds_e1=GOOGLE&gclid=Cj0KCQjwldKmBhCCARIsAP-0rfyQArIqEJcOozyMu7UlX9iM_7cMAEAzS1t4JOg1wn7IARjSXtn0eTUaAtZBEALw_wcB&gclsrc=aw.ds"

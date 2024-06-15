@@ -133,23 +133,13 @@ const Bio = () => {
               animate="visible"
             >
               <Link href={link.href} className="flex items-center group">
-                {/* <small
-                  className={`text-xs tracking-wider mr-2 ${
-                    scrollProgress >= link.progressRange[0] &&
-                    scrollProgress < link.progressRange[1]
-                      ? "text-[#d3d4cf]"
-                      : "text-neutral-700 group-hover:text-[#d3d4cf]"
-                  }`}
-                >
-                  {`0${link.id}`}
-                </small> */}
                 <motion.div
                   className={`h-[1px] mr-3 ${
                     scrollProgress >= link.progressRange[0] &&
                     scrollProgress < link.progressRange[1]
                       ? "w-16 bg-white"
                       : "w-9 bg-gray"
-                  } transition-all ease-in-out duration-300 group-hover:w-10 group-hover:bg-[#d3d4cf]`}
+                  } transition-all ease-in-out duration-300 group-hover:w-16 group-hover:bg-[#d3d4cf]`}
                 />
                 <span
                   className={`text-xs tracking-wider transition-all ease-in-out duration-300 ${

@@ -16,24 +16,12 @@ const ContactForm = ({ scrollYProgress }) => {
     e.preventDefault();
   };
 
-  const container = {
-    hidden: { opacity: 0, scale: 1 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.8,
-        staggerChildren: 0.075,
-      },
-    },
-  };
-
   return (
     <motion.div
-      className={`w-full md:bg-[#081e1e] rounded-lg  mx-auto transition-all ease-in-out duration-300`}
+      className={`w-full md:bg-[#081e1e] rounded-lg mx-auto transition-all ease-in-out duration-300`}
     >
       <form
-        className={`w-full rounded-md md:p-8 `}
+        className={`w-full rounded-md md:p-8`}
         method="POST"
         data-netlify="true"
         name="contact"
@@ -42,13 +30,13 @@ const ContactForm = ({ scrollYProgress }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <label
-              className="block  mb-2 text-gray text-xs uppercase"
+              className="block mb-2 text-gray text-xs uppercase"
               htmlFor="name"
             >
               Name
             </label>
             <input
-              className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline`}
+              className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-secondary`}
               id="name"
               type="text"
               name="name"
@@ -60,13 +48,13 @@ const ContactForm = ({ scrollYProgress }) => {
           </div>
           <div>
             <label
-              className="block text-gray text-xs uppercase  mb-2"
+              className="block text-gray text-xs uppercase mb-2"
               htmlFor="email"
             >
               Email
             </label>
             <input
-              className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline`}
+              className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-secondary`}
               id="email"
               type="email"
               name="email"
@@ -86,7 +74,7 @@ const ContactForm = ({ scrollYProgress }) => {
             Message
           </label>
           <textarea
-            className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white   leading-tight focus:outline-none focus:shadow-outline`}
+            className={`shadow border-gray text-sm bg-[#081e1e] focus:bg-[#081e1e] appearance-none border transition-all ease-in-out duration-150 rounded-lg focus-within:bg-neutral-800 w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-secondary`}
             id="message"
             name="message"
             rows="8"
@@ -99,7 +87,7 @@ const ContactForm = ({ scrollYProgress }) => {
 
         <div className="flex items-center justify-center ">
           <button
-            className={`px-10 text-secondary font-noraml bg-[#36544c] hover:bg-[#36544c]/75 text-sm transiton-all ease-in-out duration-150 py-2 rounded-lg focus:outline-none focus:shadow-outline`}
+            className={`px-10 text-secondary font-normal bg-[#36544c] hover:bg-[#36544c]/75 text-sm transition-all ease-in-out duration-150 py-2 rounded-lg focus:outline-none focus:shadow-outline`}
             type="submit"
             value="Send"
           >

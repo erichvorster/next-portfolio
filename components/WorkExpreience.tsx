@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useSpring, useInView } from "framer-motion";
-import Image from "next/image";
-import ifs from "../public/ifs.svg";
-import disc from "../public/disc.png";
+import React from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import useIsDesktop from "../hooks/useIsDesktop";
 
 const experience = [
   {
@@ -32,48 +30,23 @@ const experience = [
   },
 ];
 
-const container = {
-  hidden: { opacity: 0, scale: 1 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.075,
-    },
-  },
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
-const item2 = {
-  hidden: { y: 0, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
 const WorkExperience = ({ scrollYProgress }) => {
+  const isDesktop = useIsDesktop();
+
   return (
     <motion.div className=" pt-16 md:pt-28 mt-20 " id="exp">
       <motion.h2
-        className={`font-bold  mb-10 text-md lg:text-lg md:text-lg text-white flex items-center tracking-widest`}
+        className={`font-bold mb-10 text-md lg:text-lg md:text-lg text-white flex items-center tracking-widest`}
       >
-        EXPERIENCE
+        EXPERIENCE{" "}
+        <span className="text-2xl md:text-4xl ml-2 md:ml-4 mb-2">💼</span>
       </motion.h2>
       {experience.map((exp, i) => (
         <motion.div
           key={exp.title}
-          className="flex flex-col md:flex-row text-gray text-sm  md:bg-[#081e1e] md:p-5 hover:border-2-white  rounded-md transition-all ease-in-out mb-6"
+          className="flex flex-col md:flex-row text-gray text-sm md:bg-[#081e1e] md:p-5 hover:border-2-white rounded-md transition-all ease-in-out mb-6"
         >
-          <div className=" w-full md:w-1/4">
+          <div className="w-full md:w-1/4">
             <div className="flex items-center">
               <p className="text-xs md:text-sm whitespace-nowrap mt-1 mb-2">
                 {exp.date}
@@ -82,7 +55,7 @@ const WorkExperience = ({ scrollYProgress }) => {
           </div>
           <div className="w-full md:w-3/4 md:pl-6">
             <div className="flex items-center">
-              <h1 className="text-lg mb-2  text-white">{exp.title}</h1>
+              <h1 className="text-lg mb-2 text-white">{exp.title}</h1>
             </div>
             <div className="max-w-md">
               <p className="">{exp.para}</p>
@@ -92,6 +65,7 @@ const WorkExperience = ({ scrollYProgress }) => {
                 <motion.div
                   className="px-3 py-1 rounded-full bg-tertiary text-secondary mr-1 mb-1"
                   key={tool}
+                  whileHover={isDesktop ? { scale: 1.1 } : {}}
                 >
                   {tool}
                 </motion.div>

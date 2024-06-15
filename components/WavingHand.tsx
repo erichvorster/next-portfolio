@@ -19,7 +19,7 @@ const WavingHand = () => {
         ease: "easeInOut",
         type: "tween",
       }}
-      className="text-4xl"
+      className="text-2xl md:text-4xl ml-2 md:ml-4"
     >
       👋
     </motion.div>
