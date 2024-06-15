@@ -167,16 +167,17 @@ const Bio = () => {
             <motion.div
               whileHover={{ scale: 1.3 }}
               whileTap={{ scale: 0.8 }}
-              className="cursor-pointer"
+              className="cursor-pointer relative"
             >
               <div
-                className={`rounded-full  transition-all ease-in-out duration-300 hover:opacity-100`}
+                className={`rounded-full transition-all ease-in-out duration-300 hover:opacity-100 relative`}
               >
                 <Image
                   src={erich}
                   alt="erich"
                   className="rounded-full h-16 w-16"
                 />
+                <div className="absolute inset-0 bg-black/75 opacity-50 rounded-full transition-opacity ease-in-out duration-300 hover:opacity-0"></div>
               </div>
             </motion.div>
           </motion.div>

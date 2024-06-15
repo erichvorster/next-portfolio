@@ -47,7 +47,9 @@ const ProjectCard = ({ proj }) => {
           whileHover={isDesktop ? { scale: 1.1 } : {}}
           whileTap={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 500, damping: 17 }}
-          className="bg-transparent md:bg-[#081e1e] hover:bg-[#081e1e] hover:shadow-2xl md:px-14 md:py-10 mb-12 md:mb-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors"
+          className={`bg-transparent ${
+            isDesktop ? "md:bg-[#081e1e] hover:bg-[#081e1e]" : "bg-[#081e1e]"
+          } hover:shadow-2xl md:px-14 md:py-10 mb-12 md:mb-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors`}
         >
           <div className="flex justify-between"></div>
           <div className="text-gray-300">
@@ -56,15 +58,25 @@ const ProjectCard = ({ proj }) => {
             >
               {proj.language.toUpperCase()}
             </p>
-            <h4 className="mb-1 text-md md:text-xl font-bold tracking-wide text-white transition-colors ease-in-out duration-300">
+            <h4
+              className={`mb-1 text-md md:text-xl font-bold tracking-wide transition-colors ease-in-out duration-300 ${
+                isHovered ? "text-secondary" : "text-white"
+              }`}
+            >
               {proj.projectName}{" "}
               <motion.div
-                animate={isHovered ? { y: -5, x: 5 } : { y: 0, x: 0 }}
-                className="inline-block"
+                animate={
+                  isHovered
+                    ? { y: -5, x: 5, color: "#FF5722" }
+                    : { y: 0, x: 0, color: "#FFFFFF" }
+                }
+                className="inline-block transition-colors ease-in-out duration-300"
               >
                 <FontAwesomeIcon
                   icon={faArrowRight}
-                  className="h-4 w-4 md:h-5 md:w-5 text-white -rotate-45 mt-1 ml-1"
+                  className={`h-4 w-4 md:h-5 md:w-5 ${
+                    isHovered ? "text-secondary" : "text-white"
+                  } -rotate-45 mt-1 ml-1 transition-colors ease-in-out duration-300`}
                 />
               </motion.div>
             </h4>
@@ -75,7 +87,7 @@ const ProjectCard = ({ proj }) => {
               {proj.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-4 py-[6px] bg-tertiary text-secondary rounded-full mr-[6px] mt-[6px] text-xs"
+                  className="px-3 py-1 rounded-full bg-tertiary text-secondary mr-1 mb-1  mt-[6px] text-sm"
                 >
                   {t}
                 </span>

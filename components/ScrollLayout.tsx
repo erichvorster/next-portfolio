@@ -122,41 +122,38 @@ const ScrollLayout = () => {
             whileInView="visible"
           >
             <motion.p className="leading-6 text-gray text-md mb-4">
-              I&apos;m a <span className="text-white">self-motivated</span>{" "}
-              front-end developer passionate about crafting immersive web
-              experiences. My expertise lies in{" "}
-              <span className="text-neutral-200">HTML</span>,{" "}
-              <span className="text-neutral-200">CSS</span>, and{" "}
-              <span className="text-neutral-200">JavaScript</span>, with a
-              strong focus on <span className="text-neutral-200">React</span>{" "}
-              and <span className="text-neutral-200">Next.js</span>. I stay
-              current with software trends and continuously expand my skills.
-              <br />
-              <br />I specialize in building{" "}
-              <span className="text-white">fully responsive</span> web
-              applications using <span className="text-white">React</span> and{" "}
-              <span className="text-white">Next.js 14</span>, from{" "}
-              <span className="text-white">
-                functional to class-based components
-              </span>
-              . With a solid grasp of{" "}
-              <span className="text-white">React hooks</span> and{" "}
-              <span className="text-white">component lifecycles</span>, I create
-              dynamic user interfaces that deliver exceptional experiences.
+              I&apos;m a passionate front-end developer with a deep love for
+              crafting immersive web experiences. My expertise lies in modern
+              front-end frameworks and libraries, particularly{" "}
+              <span className="text-neutral-200">React</span> and{" "}
+              <span className="text-neutral-200">Next.js</span>. Proficient in{" "}
+              <span className="text-neutral-200">JavaScript (ES6+)</span> and{" "}
+              <span className="text-neutral-200">TypeScript</span>, I build
+              dynamic, responsive applications while staying ahead of industry
+              trends.
               <br />
               <br />
-              I&apos;m always eager to learn and grow. Recently, I&apos;ve
-              delved into cloud technologies and plan to explore AI next. I have
-              hands-on experience with{" "}
-              <span className="text-white">TypeScript</span> and{" "}
-              <span className="text-white">Angular</span>, and I&apos;m
-              proficient in state management tools like{" "}
-              <span className="text-white">Redux Toolkit</span> and{" "}
-              <span className="text-white">React Query</span>. I enjoy
-              integrating <span className="text-white">RESTful APIs</span> with
-              tools like Axios and React Query, and I leverage{" "}
-              <span className="text-white">AWS</span> for cloud solutions to
-              enhance interactivity and engagement in applications.
+              Specializing in creating fully responsive web applications, I
+              leverage the latest <span className="text-white">
+                React 19
+              </span>{" "}
+              features, including concurrent rendering and React Server
+              Components. I have advanced CSS skills and a strong appreciation
+              for good design. I have extensive experience with UI and UX,
+              regularly collaborating with our UI/UX team to create seamless
+              user experiences.
+              <br />
+              <br />
+              Currently, I&apos;m exploring cloud technologies and AI,
+              integrating with various APIs, and leveraging{" "}
+              <span className="text-white">AWS</span> for cloud solutions. With
+              a strong focus on state management, I ensure robust applications.
+              I also have backend exposure, enabling a comprehensive
+              understanding of full-stack development. My commitment to staying
+              current with <span className="text-white">JavaScript</span> and{" "}
+              <span className="text-white">TypeScript</span> advancements drives
+              me to create seamless, visually stunning, and user-friendly
+              digital experiences.
             </motion.p>
           </motion.div>
         </motion.div>
@@ -212,7 +209,7 @@ const ScrollLayout = () => {
         <motion.h2
           // // initial="hidden"
           // // whileInView="visible"
-          className={`font-bold mb-2 text-md lg:text-lg md:text-lg flex items-center tracking-widest md:ml-2 transition-all  ease-in-out  text-white`}
+          className={`font-bold mb-2 text-md lg:text-lg md:text-lg flex items-center tracking-widest transition-all  ease-in-out  text-white`}
         >
           TECH I USE{" "}
           <span className="text-2xl md:text-4xl ml-2 md:ml-4 mb-2">💻</span>
