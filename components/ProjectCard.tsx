@@ -48,8 +48,10 @@ const ProjectCard = ({ proj }) => {
           whileTap={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 500, damping: 17 }}
           className={`bg-transparent ${
-            isDesktop ? "md:bg-[#081e1e] hover:bg-[#081e1e]" : "bg-[#081e1e]"
-          } hover:shadow-2xl md:px-14 md:py-10 mb-12 md:mb-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors`}
+            isDesktop
+              ? "md:bg-[#081e1e] hover:bg-[#081e1e] hover:shadow-2xl"
+              : "bg-[#081e1e]"
+          }  md:px-14 md:py-10 mb-12 md:mb-2 group relative z-[6] rounded-lg ease-in-out duration-300 transition-colors`}
         >
           <div className="flex justify-between"></div>
           <div className="text-gray-300">

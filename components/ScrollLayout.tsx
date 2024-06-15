@@ -159,15 +159,8 @@ const ScrollLayout = () => {
         </motion.div>
       </motion.div>
       {/* Projects section */}
-      <motion.div
-        variants={isDesktop ? container2 : {}}
-        initial="hidden"
-        viewport={{ once: true }}
-        whileInView="visible"
-        id="about"
-      >
+      <motion.div variants={isDesktop ? container2 : {}} id="about">
         <motion.h2
-          variants={item}
           className={`font-bold flex items-center pt-14  mt-10 md:mt-20 text-md lg:text-lg md:text-lg tracking-widest  mb-12 text-white`}
         >
           {/* <motion.div
@@ -187,10 +180,7 @@ const ScrollLayout = () => {
             </motion.div>
           ))}
         </motion.div>
-        <motion.div
-          variants={item}
-          className="flex items-center text-gray hover:text-white transition-all ease-in-out duration-300 group mt-6 ml-0 md:ml-4 cursor-pointer"
-        >
+        <motion.div className="flex items-center text-gray hover:text-white transition-all ease-in-out duration-300 group mt-6 ml-0 md:ml-4 cursor-pointer">
           <Link
             href="https://github.com/erichvorster"
             target="_blank"
