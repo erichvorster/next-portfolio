@@ -90,7 +90,7 @@ const ScrollLayout = () => {
   console.log(scrollYProgress);
 
   return (
-    <div className="mt-14 lg:mt-28">
+    <div className="mt-14 lg:mt-24">
       {/* ABOUT SECTION */}
       <motion.div
         variants={container2}
@@ -122,38 +122,61 @@ const ScrollLayout = () => {
             whileInView="visible"
           >
             <motion.p className="leading-6 text-gray text-md mb-4">
-              I&apos;m a passionate front-end developer with a deep love for
-              crafting immersive web experiences. My expertise lies in modern
-              front-end frameworks and libraries, particularly{" "}
-              <span className="text-neutral-200">React</span> and{" "}
-              <span className="text-neutral-200">Next.js</span>. Proficient in{" "}
-              <span className="text-neutral-200">JavaScript (ES6+)</span> and{" "}
-              <span className="text-neutral-200">TypeScript</span>, I build
-              dynamic, responsive applications while staying ahead of industry
-              trends.
+              I&apos;m a passionate{" "}
+              <span className="text-neutral-200">software developer</span> with
+              a deep love for crafting immersive web experiences. My journey in{" "}
+              <span className="text-neutral-200">software development</span> is
+              driven by a genuine curiosity and a desire to build impactful
+              digital solutions.
               <br />
               <br />
-              Specializing in creating fully responsive web applications, I
-              leverage the latest <span className="text-white">
-                React 19
+              With a deep love for the <span className="text-white">
+                React
               </span>{" "}
-              features, including concurrent rendering and React Server
-              Components. I have advanced CSS skills and a strong appreciation
-              for good design. I have extensive experience with UI and UX,
-              regularly collaborating with our UI/UX team to create seamless
-              user experiences.
+              ecosystem, I specialize in leveraging key skills such as{" "}
+              <span className="text-neutral-200">
+                component-based architecture
+              </span>
+              , <span className="text-neutral-200">hooks</span>,{" "}
+              <span className="text-neutral-200">state management</span> with{" "}
+              <span className="text-neutral-200">Context API</span> and{" "}
+              <span className="text-neutral-200">Redux Toolkit</span>, and{" "}
+              <span className="text-neutral-200">
+                performance optimization techniques
+              </span>
+              . I excel at creating visually appealing and highly functional
+              applications with advanced{" "}
+              <span className="text-neutral-200">CSS</span> skills, ensuring
+              full responsiveness and a strong appreciation for good design. My
+              extensive experience with{" "}
+              <span className="text-neutral-200">UI</span> and{" "}
+              <span className="text-neutral-200">UX</span> allows me to create
+              seamless and intuitive user experiences. Proficient in{" "}
+              <span className="text-neutral-200">JavaScript (ES6+)</span>,{" "}
+              <span className="text-neutral-200">TypeScript</span>,{" "}
+              <span className="text-neutral-200">HTML5</span>, and{" "}
+              <span className="text-neutral-200">CSS3</span>, I have hands-on
+              experience with tools like{" "}
+              <span className="text-neutral-200">Webpack</span>,{" "}
+              <span className="text-neutral-200">Babel</span>, and version
+              control systems like <span className="text-neutral-200">Git</span>
+              . I am dedicated to staying updated with the latest industry
+              trends and best practices to deliver high-quality web
+              applications.
               <br />
               <br />
-              Currently, I&apos;m exploring cloud technologies and AI,
-              integrating with various APIs, and leveraging{" "}
-              <span className="text-white">AWS</span> for cloud solutions. With
-              a strong focus on state management, I ensure robust applications.
-              I also have backend exposure, enabling a comprehensive
-              understanding of full-stack development. My commitment to staying
-              current with <span className="text-white">JavaScript</span> and{" "}
-              <span className="text-white">TypeScript</span> advancements drives
-              me to create seamless, visually stunning, and user-friendly
-              digital experiences.
+              Currently, I&apos;m exploring{" "}
+              <span className="text-neutral-200">
+                cloud technologies
+              </span> and <span className="text-neutral-200">AI</span>,
+              integrating with various{" "}
+              <span className="text-neutral-200">APIs</span>, and leveraging{" "}
+              <span className="text-white">AWS</span> for cloud solutions. I
+              also have backend exposure with{" "}
+              <span className="text-white">C#</span> and{" "}
+              <span className="text-white">Node.js</span>, enabling a
+              comprehensive understanding of{" "}
+              <span className="text-neutral-200">full-stack development</span>.
             </motion.p>
           </motion.div>
         </motion.div>
@@ -431,7 +454,38 @@ const ScrollLayout = () => {
           >
             <Link href={"https://nextjs.org/"} target="_blank">
               <svg viewBox="0 0 128 128">
-                <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"></path>
+                <circle cx="64" cy="64" r="64"></circle>
+                <path
+                  fill="url(#a)"
+                  d="M106.317 112.014 49.167 38.4H38.4v51.179h8.614v-40.24l52.54 67.884a64.216 64.216 0 0 0 6.763-5.209z"
+                ></path>
+                <path fill="url(#b)" d="M81.778 38.4h8.533v51.2h-8.533z"></path>
+                <defs>
+                  <linearGradient
+                    id="a"
+                    x1="109"
+                    x2="144.5"
+                    y1="116.5"
+                    y2="160.5"
+                    gradientTransform="scale(.71111)"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#fff"></stop>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                  </linearGradient>
+                  <linearGradient
+                    id="b"
+                    x1="121"
+                    x2="120.799"
+                    y1="54"
+                    y2="106.875"
+                    gradientTransform="scale(.71111)"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#fff"></stop>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
               </svg>
             </Link>
           </motion.div>
@@ -594,6 +648,87 @@ const ScrollLayout = () => {
                   filter="url(#bootstrap-original-c)"
                   stroke="#fff"
                 ></path>
+              </svg>
+            </Link>
+          </motion.div>
+          <motion.div
+            className=" bg-[#081e1e]  rounded-md item p-4"
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
+          >
+            <Link
+              href="https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/"
+              target="_blank"
+            >
+              <svg viewBox="0 0 128 128">
+                <path
+                  fill="#9B4F96"
+                  d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"
+                ></path>
+                <path
+                  fill="#68217A"
+                  d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"
+                ></path>
+                <path
+                  fill="#fff"
+                  d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6zM97 66.2l.9-4.3h-4.2v-4.7h5.1L100 51h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7H97zm4.8 0h3.8l.9-4.3h-3.8l-.9 4.3z"
+                ></path>
+              </svg>
+            </Link>
+          </motion.div>
+          <motion.div
+            className="col-span-2 row-span-2  bg-[#081e1e] h-full rounded-md p-8"
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
+          >
+            <Link href={"https://aws.amazon.com/"} target="_blank">
+              <svg viewBox="0 0 128 128">
+                <path
+                  fill="#252f3e"
+                  d="M36.379 53.64c0 1.56.168 2.825.465 3.75.336.926.758 1.938 1.347 3.032.207.336.293.672.293.969 0 .418-.254.84-.8 1.261l-2.653 1.77c-.379.25-.758.379-1.093.379-.422 0-.844-.211-1.266-.59a13.28 13.28 0 0 1-1.516-1.98 34.153 34.153 0 0 1-1.304-2.485c-3.282 3.875-7.41 5.813-12.38 5.813-3.535 0-6.355-1.012-8.421-3.032-2.063-2.023-3.114-4.718-3.114-8.086 0-3.578 1.262-6.484 3.833-8.671 2.566-2.192 5.976-3.286 10.316-3.286 1.43 0 2.902.125 4.46.336 1.56.211 3.161.547 4.845.926v-3.074c0-3.2-.676-5.43-1.98-6.734C26.061 32.633 23.788 32 20.546 32c-1.473 0-2.988.168-4.547.547a33.416 33.416 0 0 0-4.547 1.433c-.676.293-1.18.461-1.473.547-.296.082-.507.125-.675.125-.59 0-.883-.422-.883-1.304v-2.063c0-.676.082-1.18.293-1.476.21-.293.59-.586 1.18-.883 1.472-.758 3.242-1.39 5.304-1.895 2.063-.547 4.254-.8 6.57-.8 5.008 0 8.672 1.136 11.032 3.41 2.316 2.273 3.492 5.726 3.492 10.359v13.64Zm-17.094 6.403c1.387 0 2.82-.254 4.336-.758 1.516-.508 2.863-1.433 4-2.695.672-.8 1.18-1.684 1.43-2.695.254-1.012.422-2.23.422-3.665v-1.765a34.401 34.401 0 0 0-3.871-.719 31.816 31.816 0 0 0-3.961-.25c-2.82 0-4.883.547-6.274 1.684-1.387 1.136-2.062 2.734-2.062 4.84 0 1.98.504 3.453 1.558 4.464 1.012 1.051 2.485 1.559 4.422 1.559Zm33.809 4.547c-.758 0-1.262-.125-1.598-.422-.34-.254-.633-.84-.887-1.64L40.715 29.98c-.25-.843-.38-1.39-.38-1.687 0-.672.337-1.05 1.013-1.05h4.125c.8 0 1.347.124 1.644.421.336.25.59.84.84 1.64l7.074 27.876 6.57-27.875c.208-.84.462-1.39.797-1.64.34-.255.93-.423 1.688-.423h3.367c.8 0 1.348.125 1.684.422.336.25.633.84.8 1.64l6.653 28.212 7.285-28.211c.25-.84.547-1.39.84-1.64.336-.255.887-.423 1.644-.423h3.914c.676 0 1.055.336 1.055 1.051 0 .21-.043.422-.086.676-.043.254-.125.59-.293 1.05L80.801 62.57c-.254.84-.547 1.387-.887 1.64-.336.255-.883.423-1.598.423h-3.62c-.801 0-1.348-.13-1.684-.422-.34-.297-.633-.844-.801-1.684l-6.527-27.16-6.485 27.117c-.21.844-.46 1.391-.8 1.684-.337.297-.926.422-1.684.422Zm54.105 1.137c-2.187 0-4.379-.254-6.484-.758-2.106-.504-3.746-1.055-4.84-1.684-.676-.379-1.137-.8-1.305-1.18a2.919 2.919 0 0 1-.254-1.18v-2.148c0-.882.336-1.304.97-1.304.25 0 .503.043.757.129.25.082.629.25 1.05.418a23.102 23.102 0 0 0 4.634 1.476c1.683.336 3.324.504 5.011.504 2.653 0 4.715-.465 6.145-1.39 1.433-.926 2.191-2.274 2.191-4 0-1.18-.379-2.145-1.136-2.946-.758-.8-2.192-1.516-4.254-2.191l-6.106-1.895c-3.074-.969-5.348-2.398-6.734-4.293-1.39-1.855-2.106-3.918-2.106-6.105 0-1.77.38-3.328 1.137-4.676a10.829 10.829 0 0 1 3.031-3.453c1.262-.965 2.696-1.684 4.38-2.188 1.683-.504 3.452-.715 5.304-.715.926 0 1.894.043 2.82.168.969.125 1.852.293 2.738.461.84.211 1.641.422 2.399.676.758.254 1.348.504 1.77.758.59.336 1.011.672 1.261 1.05.254.34.379.802.379 1.391v1.98c0 .884-.336 1.348-.969 1.348-.336 0-.883-.171-1.597-.507-2.403-1.094-5.098-1.641-8.086-1.641-2.399 0-4.293.379-5.598 1.18-1.309.797-1.98 2.02-1.98 3.746 0 1.18.421 2.191 1.261 2.988.844.8 2.403 1.602 4.633 2.316l5.98 1.895c3.032.969 5.22 2.316 6.524 4.043 1.305 1.727 1.938 3.707 1.938 5.895 0 1.812-.38 3.453-1.094 4.882-.758 1.434-1.77 2.696-3.074 3.707-1.305 1.051-2.864 1.809-4.672 2.36-1.895.586-3.875.883-6.024.883Zm0 0"
+                ></path>
+                <path
+                  fill="#f90"
+                  d="M118 73.348c-4.432.063-9.664 1.052-13.621 3.832-1.223.883-1.012 2.062.336 1.894 4.508-.547 14.44-1.726 16.21.547 1.77 2.23-1.976 11.62-3.663 15.79-.504 1.26.59 1.769 1.726.8 7.41-6.231 9.348-19.242 7.832-21.137-.757-.925-4.388-1.79-8.82-1.726zM1.63 75.859c-.927.116-1.347 1.236-.368 2.121 16.508 14.902 38.359 23.872 62.613 23.872 17.305 0 37.43-5.43 51.281-15.66 2.273-1.688.297-4.254-2.02-3.204-15.534 6.57-32.421 9.77-47.788 9.77-22.778 0-44.8-6.273-62.653-16.633-.39-.231-.755-.304-1.064-.266z"
+                ></path>
+              </svg>
+            </Link>
+          </motion.div>
+          <motion.div
+            className="col-span-1  bg-[#081e1e] rounded-md item p-4"
+            whileHover={
+              isDesktop
+                ? {
+                    scale: 0.8,
+                    rotate: -10,
+                  }
+                : {}
+            }
+          >
+            <Link href="https://graphql.org/" target="_blank">
+              <svg viewBox="0 0 128 128">
+                <g fill="#E434AA">
+                  <path d="M18.39 96.852l-4.6-2.657L65.04 5.434l4.597 2.656zm0 0"></path>
+                  <path d="M12.734 87.105H115.23v5.31H12.734zm0 0"></path>
+                  <path d="M66.031 119.688L14.766 90.09l2.656-4.602 51.266 29.602zm0 0M110.566 42.543L59.301 12.941l2.656-4.597 51.266 29.597zm0 0"></path>
+                  <path d="M17.434 42.523l-2.657-4.601 51.27-29.598 2.656 4.598zm0 0"></path>
+                  <path d="M109.621 96.852L58.375 8.09l4.598-2.656 51.25 88.761zm0 0M16.8 34.398h5.313v59.204h-5.312zm0 0"></path>
+                  <path d="M105.887 34.398h5.312v59.204h-5.312zm0 0"></path>
+                  <path d="M65.129 117.441l-2.32-4.02 44.586-25.745 2.32 4.02zm0 0"></path>
+                  <path d="M118.238 95.328c-3.07 5.344-9.918 7.168-15.261 4.098-5.344-3.074-7.168-9.922-4.098-15.266 3.074-5.344 9.922-7.168 15.266-4.097 5.375 3.105 7.199 9.921 4.093 15.265M29.09 43.84c-3.074 5.344-9.922 7.168-15.266 4.097-5.344-3.074-7.168-9.921-4.097-15.265 3.074-5.344 9.921-7.168 15.265-4.098 5.344 3.106 7.168 9.922 4.098 15.266M9.762 95.328c-3.075-5.344-1.25-12.16 4.093-15.266 5.344-3.07 12.16-1.246 15.266 4.098 3.07 5.344 1.246 12.16-4.098 15.266-5.375 3.07-12.191 1.246-15.261-4.098M98.91 43.84c-3.07-5.344-1.246-12.16 4.098-15.266 5.344-3.07 12.16-1.246 15.265 4.098 3.07 5.344 1.247 12.16-4.097 15.266-5.344 3.07-12.192 1.246-15.266-4.098M64 126.656a11.158 11.158 0 01-11.168-11.168A11.158 11.158 0 0164 104.32a11.158 11.158 0 0111.168 11.168c0 6.145-4.992 11.168-11.168 11.168M64 23.68a11.158 11.158 0 01-11.168-11.168A11.158 11.158 0 0164 1.344a11.158 11.158 0 0111.168 11.168A11.158 11.158 0 0164 23.68"></path>
+                </g>
               </svg>
             </Link>
           </motion.div>

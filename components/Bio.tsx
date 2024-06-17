@@ -164,11 +164,7 @@ const Bio = () => {
             animate="visible"
             className=""
           >
-            <motion.div
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 0.8 }}
-              className="cursor-pointer relative"
-            >
+            <motion.div className="cursor-pointer relative">
               <div
                 className={`rounded-full transition-all ease-in-out duration-300 hover:opacity-100 relative`}
               >

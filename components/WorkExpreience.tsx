@@ -7,7 +7,7 @@ const experience = [
   {
     title: "Front End Developer · InfoSlips",
     date: "2022 — PRESENT",
-    para: "Experienced Front End Developer specializing in correspondence and communication at InfoSlips. Skilled in building and maintaining web applications using React, Angular, and modern frameworks. Proficient in ensuring mobile responsiveness, leveraging UI libraries like Bootstrap, and collaborating with design teams. Expertise in bug fixes, code reviews, NPM package utilization, CMS integration, and version control with Git.",
+    para: "Passionate Front End Developer with extensive experience in creating immersive web applications at InfoSlips. Proficient in leveraging key skills such as component-based architecture, hooks, state management with Context API and Redux Toolkit, and performance optimization techniques within the React ecosystem. Skilled in ensuring full responsiveness and a keen eye for design using advanced CSS, SCSS, and Tailwind CSS. Experienced in building and maintaining web applications with React, Angular, and modern frameworks. Hands-on experience with tools like Webpack, Babel, and Git for version control. Strong expertise in bug fixes, code reviews, NPM package utilization, CMS integration, and collaboration with UI/UX design teams.",
     tools: [
       "React",
       "Angular",
@@ -19,13 +19,15 @@ const experience = [
       "JavaScript",
       "TypeScript",
       "SCSS",
-      "Tailwind CSS",
+      "C#",
+      "Webpack",
+      "Babel",
     ],
   },
   {
     title: "Business Development Consultant · Discovery Limited",
     date: "2019 — 2022",
-    para: "Former Business Development Consultant at Discovery Limited, bringing valuable skills to the role of Front End Developer. Developed project plans and strategies to drive sales and identify business opportunities. Collaborated with business analytics to analyze data and address growth areas. Established strong relationships with financial advisors, enhancing communication and interpersonal skills. Proficient in understanding user needs, facilitating training sessions, and effectively communicating complex information.",
+    para: "Former Business Development Consultant at Discovery Limited, bringing valuable skills to the role. Developed project plans and strategies to drive sales and identify business opportunities. Collaborated with business analytics to analyze data and address growth areas. Established strong relationships with financial advisors, enhancing communication and interpersonal skills. Proficient in understanding user needs, facilitating training sessions, and effectively communicating complex information.",
     tools: [],
   },
 ];
