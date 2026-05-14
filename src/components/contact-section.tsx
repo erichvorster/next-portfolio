@@ -9,10 +9,10 @@ export function ContactSection() {
       <div className="flex flex-col gap-10 pb-20 md:flex-row md:items-end md:justify-between md:gap-12 md:pb-28 lg:pb-32">
         <div className="flex flex-1 flex-col items-start gap-6 md:gap-8">
           <Image
-            src="/erich.png"
+            src="/erich.jpg"
             alt="Erich Vorster"
-            width={128}
-            height={128}
+            width={256}
+            height={256}
             priority
             className="h-14 w-14 shrink-0 rounded-full object-cover md:h-16 md:w-16"
           />

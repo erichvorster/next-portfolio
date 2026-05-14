@@ -14,9 +14,70 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://erichvorster.co.za";
+const SITE_NAME = "Erich Vorster";
+const SITE_DESCRIPTION =
+  "Software engineer at Infoslips. Frontend, backend, design, and AI features built with Agents, MCP, and RAG.";
+
 export const metadata: Metadata = {
-  title: "Erich Vorster",
-  description: "Software engineer building AI-native products.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: "%s — Erich Vorster",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_ZA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE_NAME,
+  url: SITE_URL,
+  jobTitle: "Software Engineer",
+  worksFor: { "@type": "Organization", name: "Infoslips" },
+  description: SITE_DESCRIPTION,
+  knowsAbout: [
+    "Software engineering",
+    "AI engineering",
+    "Agents",
+    "MCP servers",
+    "Retrieval-augmented generation",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Cloud infrastructure",
+  ],
+  sameAs: [
+    "https://github.com/erichvorster",
+    "https://www.linkedin.com/in/erichvorster/",
+  ],
 };
 
 export default function RootLayout({
@@ -40,6 +101,10 @@ export default function RootLayout({
           {children}
           <CursorDot />
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </body>
     </html>
   );
