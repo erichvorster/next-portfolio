@@ -12,7 +12,7 @@ interface DropMeALineProps {
 }
 
 export function DropMeALine({
-  href = "mailto:erichvorster1@gmail.com",
+  href = "/contact",
   className,
 }: DropMeALineProps) {
   const iconRef = useRef<SendIconHandle>(null);
