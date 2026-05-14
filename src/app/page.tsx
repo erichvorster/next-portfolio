@@ -15,27 +15,27 @@ const heroPhrases = [
 const services = [
   {
     number: "01",
-    title: "AI Integration",
+    title: "Frontend & design",
     description:
-      "Adding AI features to existing products — Agents, MCP servers, RAG. With evals, observability, and a clear view of what to trust the model on and what not.",
+      "The part of the stack with the most muscle memory. UI as a design problem first, a code problem second — comfortable in design tools and in the codebase they become.",
   },
   {
     number: "02",
-    title: "Full-Stack Builds",
+    title: "Backend",
     description:
-      "End-to-end product engineering on a modern TypeScript stack. Frontend, backend, data, deploy — a feature from idea to running in production.",
+      "A private practice for years before it became part of the day job. Side-project work that quietly turned into production code I own.",
   },
   {
     number: "03",
-    title: "Frontend & Design",
+    title: "AI features",
     description:
-      "UI engineering with a design sensibility. React, Tailwind, motion. Comfortable in Figma and in the codebase that the Figma file becomes.",
+      "Where most of my time goes right now. I treat AI as a building block for products that have to actually work — which means thinking carefully about evals, failure modes, and where a model shouldn't be trusted on its own.",
   },
   {
     number: "04",
-    title: "Technical Reviews",
+    title: "Cloud",
     description:
-      "Code review, architecture audits, AI integration sanity-checks. A second pair of eyes from someone who builds these systems every day.",
+      "Comfortable enough here to take a feature from idea to running in production without handing off — and still learning. The kind of surface where you keep finding rooms you didn't know the house had.",
   },
 ];
 
@@ -52,8 +52,7 @@ export default function Page() {
               <ScrambleText phrases={heroPhrases} />
             </h1>
             <p className="max-w-xs text-sm text-muted-foreground md:text-base xl:max-w-[260px] xl:flex-shrink-0 xl:pb-3">
-              specialized in AI features, full-stack TypeScript, design, and
-              cloud.
+              AI features, full-stack TypeScript, design, and cloud.
             </p>
           </div>
         </section>
@@ -62,10 +61,9 @@ export default function Page() {
         <section className="grid grid-cols-12 gap-x-4 gap-y-12 px-6 pt-32 pb-32 md:px-10 md:pt-48 md:pb-40 md:gap-y-0 lg:px-16 lg:pt-64 lg:pb-56">
           <div className="col-span-12 md:col-span-9">
             <p className="max-w-3xl text-2xl leading-[1.15] tracking-tight md:text-3xl lg:text-4xl">
-              I&apos;m a software engineer at Infoslips. I came in through
-              frontend and design in 2022, and have grown into backend and —
-              for the past nine months — AI features built with Agents, MCP,
-              and RAG.
+              Software engineer working across frontend, design, backend, and
+              — for the past while — AI features built with Agents, MCP, and
+              RAG.
             </p>
             <div className="mt-10">
               <DropMeALine />
@@ -78,7 +76,7 @@ export default function Page() {
         {/* WHAT I CAN HELP YOU WITH */}
         <section className="px-6 pb-32 md:px-10 md:pb-40 lg:px-16 lg:pb-56">
           <h2 className="mb-20 max-w-4xl font-medium leading-[1.05] tracking-tight text-[clamp(1.75rem,5vw,3.5rem)] md:mb-28 lg:mb-32">
-            I can help you with&hellip;
+            What I work on
           </h2>
 
           <div className="grid grid-cols-1 gap-x-4 gap-y-16 md:grid-cols-2 md:gap-y-20 xl:grid-cols-4 xl:gap-y-0">

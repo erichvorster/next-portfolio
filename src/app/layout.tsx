@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CursorDot } from "@/components/cursor-dot";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <CursorDot />
         </ThemeProvider>
       </body>
     </html>

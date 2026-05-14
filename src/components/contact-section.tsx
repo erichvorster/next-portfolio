@@ -17,8 +17,8 @@ export function ContactSection() {
             className="h-14 w-14 shrink-0 rounded-full object-cover md:h-16 md:w-16"
           />
           <h2 className="max-w-5xl font-medium leading-[1.05] tracking-tight text-[clamp(2rem,6vw,4.5rem)]">
-            Let&apos;s talk about a project, collaboration, or an idea
-            you&apos;ve been chewing on.
+            Always happy to chat about engineering, AI, design, or
+            something you&apos;re building.
           </h2>
         </div>
 

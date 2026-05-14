@@ -67,7 +67,7 @@ export function SocialColumn() {
   return (
     <aside className="col-span-12 md:col-span-3">
       <p className="mb-3 border-b border-border/60 pb-2 text-sm text-muted-foreground">
-        Let&apos;s get connected
+        Find me here
       </p>
       <ul className="-ml-3 space-y-1">
         {socialLinks.map((link) => (
